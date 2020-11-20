@@ -1,0 +1,62 @@
+Changes:
+1.4.1-1
+* Settlement Name Field not readonly any more
+* NPCs have full stat editing like Companion page
+* Add all members of clan to companion page.  Player, Spouse, Children, Siblings, Party, Clan
+* Relax lower limits on many attributes (go negative at own risk)
+* Update current selection when using Info Pane to make changes
+* Fix several issues in numeric up/down control defaulting for zero and negative numbers
+* Fix issue with casting value directly to int instead of using Convert.ToInt32
+* Hide dialog when using teleport or target
+* Add protection against unnecessary updates (will likely be no fix for flickering issues due to Mono)
+
+
+1.4.1-2
+* Remove Settlement name rename (does not persist in save)
+* Change clan of NPC  (player excluded)
+* Relations between people other than player exposed in Relations tab
+* Expose cheat limits for troop/prisoner count on party page
+  * Companion limit is fixed to Tier + 3.  Cannot be changed
+    See Cheat Engine table for code injection to remove limit.
+    https://fearlessrevolution.com/threads/12009/post-132436
+
+
+1.4.1-3
+* Major changes around scaling/sizing to try to enforce consistency
+* Prevent from opening in Fullscreen.  Add warning message.
+* Persist column widths between games
+
+
+1.4.1-4
+* Change Troop filters by default to allow mod that do not use standard occupations
+  * Note you can right click on headers of all toops and clear filters on occupation and also show the "excluded" column
+* Fix upgrade button which was a regression.  Now should work for non-heros
+* Fix how columns are restored to properly sort on load
+
+1.4.1-5
+* Fix crash with custom mods that do not provide culture for troops
+* Fix issues with add/remove troops
+
+1.4.1-6
+* Expose Xp for skills as just setting skill value is incorrect
+* Fix rename on full name of npc
+* Fix save/restore for vertical splitters
+* Fix the script which put version number in assembly to show current version
+* Fix refresh of building queue on changes
+* Update Hero level on skill changes
+
+1.4.1-7
+* Yet another safety check on invalid troops from third party mods
+* Fix source uploads as some key folders and files were missing so could not be built.
+
+1.4.1-8
+* Change logging enable sequence to capture boot errors
+* Remove references to wars on factions after breaking change (do version numbers mean nothing?)
+
+1.4.2-9
+* Support for 1.4.2
+* Create new subclass of property grid to handle generic MBObject values
+* Property Grid can now handle generic game objects so supports changing Clans and Cultures
+
+1.4.3-10
+* Support for 1.4.3

@@ -1,0 +1,16 @@
+Feature Requests:
+ * Have Crafted weapons update immediately after edit (currnetly save/reload needed)
+ * Companion Formations
+ * Alter companion limits
+ * Change soldiers to females
+4. "Remove Sibling". Also add Kill/Revive.
+
+ 
+- issue with perk selection in the character screen not being saved on pressing Done. Disabling the mod restores this game functionality.
+- issue with text input popup being slightly misaligned, making it difficult to edit records beneath the one currently changed.
+- Issue where navigating any list of records using keyboard keys(eg. pressing L to jump to L named NPCs) only works for currently visible records.
+- suggestion to remove character brother from the list of companions as he's in no way important after the initial training scene.
+- suggestion to make it so the PC stays at the top of the list when ordering NPCs.
+- suggestion to allow using CTRL+A inside text boxes.
+- suggestion to remove the random string from the name box of all the records that can be renamed. Not sure what exactly it's used for, maybe localization?
+- suggestion to lock in visible character traits so they never get affected by our ingame actions. 

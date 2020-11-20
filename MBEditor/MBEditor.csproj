@@ -1,0 +1,147 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <BaseOutputPath>$(MSBuildProjectDirectory)\..\Output\$(TargetFramework)\$(MSBuildProjectName)\</BaseOutputPath>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU</Platforms>
+    <UserSecretsId>bf3026b2-9974-4d23-862e-433012682099</UserSecretsId>
+    <!--<OutputPath>$(MSBuildProjectDirectory)\..\Output\$(TargetFramework)\$(MSBuildProjectName)\</OutputPath>-->
+    <!--<IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)$(MSBuildProjectName)\</IntermediateOutputPath>-->    
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Configurations>Current;v1.2.1;v1.3.0;v1.3.1;v1.4.0;v1.4.1;v1.4.2;v1.4.3;v1.5.2</Configurations>
+    <InformationalVersion>$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)\..\Version.txt'))</InformationalVersion>
+    <DefineConstants>TRACE;DEBUG;NETCORE</DefineConstants>
+    <MB2InstallLocation>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 261550', 'InstallLocation', null, RegistryView.Registry64))</MB2InstallLocation>
+    <Net4LibraryLocation>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\4.0-api</Net4LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'==''">
+    <Configuration>Current</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Current'">
+    <MB2Version>0.0.0</MB2Version>
+    <MB2LibraryLocation>$(MB2InstallLocation)\bin\Win64_Shipping_Client</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.2.1'">
+    <MB2Version>1.2.1</MB2Version>
+    <DefineConstants>TRACE;MBVER_010201;MBVER_010301</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.3.0'">
+    <MB2Version>1.3.0</MB2Version>
+    <DefineConstants>TRACE;MBVER_010301</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.3.1'">
+    <MB2Version>1.3.1</MB2Version>
+    <DefineConstants>TRACE;MBVER_010301</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.4.0'">
+    <MB2Version>1.4.0</MB2Version>
+    <DefineConstants>TRACE;MBVER_010400</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.4.1'">
+    <MB2Version>1.4.1</MB2Version>
+    <DefineConstants>TRACE;MBVER_010502</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.4.2'">
+    <MB2Version>1.4.2</MB2Version>
+    <DefineConstants>TRACE;MBVER_010400</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.4.3'">
+    <MB2Version>1.4.3</MB2Version>
+    <DefineConstants>TRACE;MBVER_010403</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='v1.5.2'">
+    <MB2Version>1.5.2</MB2Version>
+    <DefineConstants>TRACE;MBVER_010505</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SaddledEdgeEditor\bin\Win64_Shipping_Client\</OutputPath>
+    <IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)\$(MSBuildProjectName)\$(MB2Version)\</IntermediateOutputPath>
+    <Authors>cnedwin</Authors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='v1.4.1|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <Compile Remove="Libraries\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Libraries\**" />
+    <None Remove="bin\**" />
+    <None Remove="Libraries\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+    <Compile Remove="MBEditor\Tabs\HeroPanel.cs" />
+    <Compile Remove="MBEditor\Tabs\HeroPanel.Designer.cs" />
+    <Compile Remove="MBEditor\Tabs\TabUnique.cs" />
+    <Compile Remove="MBEditor\Tabs\TabUnique.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MBEditor\Tabs\HeroPanel.resx" />
+    <EmbeddedResource Remove="MBEditor\Tabs\TabUnique.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DarkUI.Support\DarkUI.Support.csproj" />
+    <ProjectReference Include="..\DarkUI\DarkUI.csproj" />
+    <ProjectReference Include="..\ObjectListView\ObjectListView.core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MSBuildTasks" Version="1.5.0.235">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Libraries\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\..\..\..\..\..\Windows\WinSxS\amd64_system.windows.forms_b77a5c561934e089_4.0.15805.0_none_8bf163462eb38db0\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!-- Bannerlord Module Assemblies  -->
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MBEditor\DialogControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup> 
+  <Target Name="SolutionInfo" BeforeTargets="BeforeBuild;Build;BuildCompile;BuildGenerateSources">
+      <Message Text="Creating Version File:     $(MB2Version)" />
+      <AssemblyInfo CodeLanguage="CS" OutputFile="VersionInfo.cs" AssemblyTitle="MBEditor" AssemblyDescription="Mount &amp; Blade 2: Bannerlord Editor" AssemblyCopyright="Copyright © shadowglaze" ComVisible="false" CLSCompliant="false" AssemblyVersion="$(MB2Version)" AssemblyFileVersion="$(MB2Version)" AssemblyInformationalVersion="$(InformationalVersion)" />
+  </Target>
+</Project>

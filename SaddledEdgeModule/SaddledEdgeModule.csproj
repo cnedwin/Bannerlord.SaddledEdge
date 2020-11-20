@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <BaseOutputPath>$(MSBuildProjectDirectory)\..\Output\$(TargetFramework)\$(MSBuildProjectName)\</BaseOutputPath>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU</Platforms>
+    <UserSecretsId>bf3026b2-9974-4d23-862e-433012682099</UserSecretsId>
+    <OutputPath>$(MSBuildProjectDirectory)\..\Output\$(TargetFramework)\$(MSBuildProjectName)\</OutputPath>
+    <IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)$(MSBuildProjectName)\</IntermediateOutputPath>    
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Configurations>Release;v1.5.5</Configurations>
+    <MB2InstallLocation>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</MB2InstallLocation>
+    <Net4LibraryLocation>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\4.0-api</Net4LibraryLocation>
+    <DefineConstants>TRACE;NETCORE</DefineConstants>
+  </PropertyGroup>
+  <!--force use of 1.2.1 as build for bootstrap for max compat?-->
+  <PropertyGroup Condition="'$(Configuration)'==''">
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <MB2Version>1.5.5</MB2Version>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\v1.5.5</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='v1.5.5'">
+    <MB2Version>1.5.5</MB2Version>
+    <DefineConstants>MBVER_010201;MBVER_010301</DefineConstants>
+    <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MSBuildTasks" Version="1.5.0.235">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Libraries\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>$(Net4LibraryLocation)\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!-- Bannerlord Module Assemblies  -->
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /d /y &quot;$(TargetPath)&quot; &quot;$(MB2InstallLocation)\Modules\SaddledEdgeEditor\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;" />
+  </Target>
+</Project>

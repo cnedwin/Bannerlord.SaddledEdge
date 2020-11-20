@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{606B5FEF-E833-40DC-BBEA-EB6C50A4F648}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>MBEditor</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <BaseOutputPath>$(MSBuildProjectDirectory)/../Output/$(TargetFramework)/$(MSBuildProjectName)/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)/../Temp/$(TargetFramework)$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <OutputPath>$(MSBuildProjectDirectory)/../Output/$(TargetFramework)/$(MSBuildProjectName)/</OutputPath>
+    <IntermediateOutputPath>$(MSBuildProjectDirectory)/../Temp/$(TargetFramework)$(MSBuildProjectName)/</IntermediateOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <MB2InstallLocation>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 261550', 'InstallLocation', null, RegistryView.Registry64))</MB2InstallLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="MBEditor\EventChanges.cs" />
+    <Compile Include="MBEditor\Extensions.cs" />
+    <Compile Include="MBEditor\GlobalState.cs" />
+    <Compile Include="MBEditor\IStateSerializer.cs" />
+    <Compile Include="MBEditor\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MBEditor\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\MBCoordinator.cs" />
+    <Compile Include="MBEditor\Controls\MBEditPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MBEditor\ObjectCache.cs" />
+    <Compile Include="MBEditor\SharedState.cs" />
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroProps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroProps.Designer.cs">
+      <DependentUpon>ToolHeroProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroSkills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroSkills.Designer.cs">
+      <DependentUpon>ToolHeroSkills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroPerks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroPerks.Designer.cs">
+      <DependentUpon>ToolHeroPerks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroAttrs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroAttrs.Designer.cs">
+      <DependentUpon>ToolHeroAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroMain.Designer.cs">
+      <DependentUpon>ToolHeroMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroRelations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroRelations.Designer.cs">
+      <DependentUpon>ToolHeroRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroTraits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\HeroTab\ToolHeroTraits.Designer.cs">
+      <DependentUpon>ToolHeroTraits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\ITab.cs" />
+    <Compile Include="MBEditor\Tabs\TabCrafted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabCrafted.Designer.cs">
+      <DependentUpon>TabCrafted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabHero.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabHero.Designer.cs">
+      <DependentUpon>TabHero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabInventory.Designer.cs">
+      <DependentUpon>TabInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabNPCs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabNPCs.Designer.cs">
+      <DependentUpon>TabNPCs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabParty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabParty.Designer.cs">
+      <DependentUpon>TabParty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabFaction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabFaction.Designer.cs">
+      <DependentUpon>TabFaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabSettlement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabSettlement.Designer.cs">
+      <DependentUpon>TabSettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabTroops.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabTroops.Designer.cs">
+      <DependentUpon>TabTroops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabWorkshops.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MBEditor\Tabs\TabWorkshops.Designer.cs">
+      <DependentUpon>TabWorkshops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VersionInfo.cs" />
+    <EmbeddedResource Include="MBEditor\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroProps.resx">
+      <DependentUpon>ToolHeroProps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroSkills.resx">
+      <DependentUpon>ToolHeroSkills.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroPerks.resx">
+      <DependentUpon>ToolHeroPerks.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroAttrs.resx">
+      <DependentUpon>ToolHeroAttrs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroMain.resx">
+      <DependentUpon>ToolHeroMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroRelations.resx">
+      <DependentUpon>ToolHeroRelations.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\HeroTab\ToolHeroTraits.resx">
+      <DependentUpon>ToolHeroTraits.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabCrafted.resx">
+      <DependentUpon>TabCrafted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabHero.resx">
+      <DependentUpon>TabHero.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabInventory.resx">
+      <DependentUpon>TabInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabNPCs.resx">
+      <DependentUpon>TabNPCs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabParty.resx">
+      <DependentUpon>TabParty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabFaction.resx">
+      <DependentUpon>TabFaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabSettlement.resx">
+      <DependentUpon>TabSettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabTroops.resx">
+      <DependentUpon>TabTroops.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MBEditor\Tabs\TabWorkshops.resx">
+      <DependentUpon>TabWorkshops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Reference Include="netstandard">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\4.5\Facades\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\gac\System.IO.Compression\4.0.0.0__b77a5c561934e089\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\gac\System.IO.Compression.FileSystem\4.0.0.0__b77a5c561934e089\System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\gac\System.Net.Http\4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TaleWorlds.CampaignSystem">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="TaleWorlds.Core">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.DotNet">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.MountAndBlade">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.Localization">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.Library">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="TaleWorlds.InputSystem">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.InputSystem.dll</HintPath>
+    </Reference>
+    <Compile Include="MBEditor\Log.cs" />
+    <Compile Include="MBEditor\SubModule.cs" />
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>$(MB2InstallLocation)\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DarkUI.Support\DarkUI.Support.csproj">
+      <Project>{7be038bf-eb3f-4401-89fc-90381cad59bc}</Project>
+      <Name>DarkUI.Support</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DarkUI\DarkUI.csproj">
+      <Project>{69268a6b-f821-4526-aec9-806c853bccd7}</Project>
+      <Name>DarkUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectListView\ObjectListView.core.csproj">
+      <Project>{21048a9c-d87a-4392-9ce7-cff941364cc9}</Project>
+      <Name>ObjectListView.core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
