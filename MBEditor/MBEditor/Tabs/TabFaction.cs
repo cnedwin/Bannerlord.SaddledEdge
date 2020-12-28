@@ -54,65 +54,65 @@ namespace MBEditor.Tabs
             this.lstItems.Columns.Clear();
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Name", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 275,
+                Text = "名称", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 275,
                 AspectGetter = item => ((IFaction)item).Name?.ToString() ?? "<None>",
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Leader", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 170,
+                Text = "领袖", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 170,
                 AspectGetter = item => ((IFaction)item).Leader?.Name?.ToString() ?? "<None>",
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "IsClan", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 89,
+                Text = "氏族成员", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 89,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((IFaction)item).IsClan,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Player Crime Rating", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
+                Text = "犯罪等级", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
                 AspectGetter = item => ((IFaction)item).MainHeroCrimeRating,
                 AspectPutter = (item, value) => { ((IFaction)item).MainHeroCrimeRating = Convert.ToSingle(value); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Renown", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 130,
+                Text = "声望", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 130,
                 AspectGetter = item => (item as Clan)?.Renown,
                 AspectPutter = (item, value) => { var clan = (item as Clan); if (clan != null) clan.Renown = Convert.ToSingle(value); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Influence", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
+                Text = "影响力", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
                 AspectGetter = item => (item as Clan)?.Influence,
                 AspectPutter = (item, value) => { var clan = (item as Clan); if (clan != null) clan.Influence = Convert.ToSingle(value); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Tier", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 90,
+                Text = "等阶", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 90,
                 AspectGetter = item => (item as Clan)?.Tier,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Clan", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 150,
+                Text = "氏族", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 150,
                 AspectGetter = item => (item as Kingdom)?.RulingClan?.Name?.ToString(),
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Strength", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
+                Text = "实力", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
                 AspectGetter = item => Math.Round(((IFaction)item).TotalStrength,1),
             });
 #if !MBVER_010400 && !MBVER_010301
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Aggressiveness", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 93,
+                Text = "好斗", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 93,
                 AspectGetter = item => Math.Round(((IFaction)item).Aggressiveness,1),
             });
 #endif
 #if !MBVER_010403
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Nobles", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 75,
-                AspectGetter = item => ((IFaction)item).Lords?.Count(),
+                Text = "贵族", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 75,
+                AspectGetter = item => ((IFaction)item).StringId?.Count(),
             });
 #endif
 
@@ -180,7 +180,7 @@ namespace MBEditor.Tabs
             this.MainSplitter.Panel2Collapsed = (obj == null);
         }
 
-        public string SettingsName => "Faction";
+        public string SettingsName => "势力";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

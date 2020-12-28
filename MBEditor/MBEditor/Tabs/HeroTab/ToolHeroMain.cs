@@ -11,7 +11,6 @@ namespace MBEditor.Tabs.HeroTab
     using TaleWorlds.Library;
     using BrightIdeasSoftware;
     using DarkUI;
-    using Helpers;
 
     public partial class TabHeroMain : UserControl, ITab
     {
@@ -311,10 +310,10 @@ namespace MBEditor.Tabs.HeroTab
 
                 if (diff != 0)
                 {
-                    hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge(newAge));
+                    hero.SetBirthDay(Helpers.HeroHelper.GetRandomBirthDayForAge((int)newAge));
 
                     var finalAge = (int)hero.BirthDay.ElapsedYearsUntilNow;
-                    MBEditor.Log.Debug($"Adjusting Age {curAge} -> {newAge} = {finalAge}");
+                    MBEditor.Log.Debug($"调整年龄 {curAge} -> {newAge} = {finalAge}");
                 }
             }
         }

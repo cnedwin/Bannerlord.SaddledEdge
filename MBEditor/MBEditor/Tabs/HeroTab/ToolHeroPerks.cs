@@ -53,29 +53,29 @@ namespace MBEditor.Tabs.HeroTab
 
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Perk", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
+                Text = "技巧", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
                 AspectGetter = item => ((PerkObject)item).Name?.ToString(),
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Value", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true,
+                Text = "数值", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => selHero?.GetPerkValue(((PerkObject)item)) ,
                 AspectPutter = (item, value) => selHero?.SetPerkValue(((PerkObject)item), Convert.ToBoolean(value))
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Skill", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 80,
+                Text = "技能", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 80,
                 AspectGetter = item => ((PerkObject)item).Skill?.Name?.ToString(),
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Skill Value", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false,
+                Text = "技能数值", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false,
                 AspectGetter = item => ((PerkObject)item).RequiredSkillValue,
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Req Met", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false,
+                Text = "学习条件", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => selHero?.GetSkillValue(((PerkObject)item).Skill) >= ((PerkObject)item).RequiredSkillValue,
             });

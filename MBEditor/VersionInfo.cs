@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Reflection.AssemblyTitle("MBEditor")]
 [assembly: System.Reflection.AssemblyDescription("Mount & Blade 2: Bannerlord Editor")]
-[assembly: System.Reflection.AssemblyCopyright("Copyright © shadowglaze")]
-[assembly: System.Runtime.InteropServices.ComVisible(false)]
 [assembly: System.CLSCompliant(false)]
-[assembly: System.Reflection.AssemblyVersion("1.4.1")]
-[assembly: System.Reflection.AssemblyFileVersion("1.4.1")]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
 [assembly: System.Reflection.AssemblyInformationalVersion("1.5.4-10")]
+[assembly: System.Reflection.AssemblyCopyright("Copyright © shadowglaze")]
+[assembly: System.Reflection.AssemblyFileVersion("1.4.1")]
+[assembly: System.Reflection.AssemblyVersion("1.4.1")]
+[assembly: System.Reflection.AssemblyTitle("MBEditor")]
 
 

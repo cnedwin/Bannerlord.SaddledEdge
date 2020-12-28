@@ -13,7 +13,6 @@ namespace MBEditor.Tabs
     using TaleWorlds.Library;
     using DarkUI;
     using BrightIdeasSoftware;
-    using Helpers;
 
     public partial class TabNPCs : DarkUI.Docking.DarkDocument, ITab, IStateSerializer
     {
@@ -26,10 +25,8 @@ namespace MBEditor.Tabs
         public Hero Player => Coordinator?.Hero;
         public MBCoordinator Coordinator { get; set; }
 
-
         private TabHeroMain mainInfo;
         public MBCoordinator HeroCoordinator = new MBCoordinator() { Hero = null, Control = null};
-
 
         void ITab.InitializeTab()
         {
@@ -83,30 +80,30 @@ namespace MBEditor.Tabs
             olvNPCName.IsEditable = false;
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Clan",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 160,
+                Text = "氏族",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 160,
                 AspectGetter = item => ((Hero)item).Clan?.Name?.ToString() ?? "<None>",
             });
 
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Age",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = true, Width = 80,
+                Text = "年龄",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = true, Width = 80,
                 AspectGetter = item => (int)((Hero)item).BirthDay.ElapsedYearsUntilNow,
             });
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Relations", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true, Width = 90,
+                Text = "关系", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true, Width = 90,
                 AspectGetter = item => ((Hero)item).GetRelation(this.Coordinator.Hero),
                 AspectPutter = (item, value) => { ((Hero)item).SetPersonalRelation(this.Coordinator.Hero, Convert.ToInt32(value)); }
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "Renown", IsVisible = false, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 60,
+                Text = "声望", IsVisible = false, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 60,
                 AspectGetter = item => (decimal)(((Hero)item).Clan?.Renown ?? 0.0f),
                 AspectPutter = (item, value) => {
                     if (((Hero)item).Clan == null) return;
                     ((Hero)item).Clan.Renown = Math.Max(-999999.0f, Convert.ToSingle(value)); },
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "Influence", IsVisible = false, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 60,
+                Text = "影响力", IsVisible = false, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 60,
                 AspectGetter = item => (decimal)(((Hero)item).Clan?.Influence ?? 0.0f),
                 AspectPutter = (item, value) => {
                     if (((Hero)item).Clan == null) return;
@@ -114,45 +111,45 @@ namespace MBEditor.Tabs
             });
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Companion", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "同伴", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 AspectGetter = item => ((Hero)item).CompanionOf?.Name?.ToString() ?? "",
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "Controversy", IsVisible = false, TextAlign = HorizontalAlignment.Center,IsEditable = false, Width = 60,
+                Text = "话语权", IsVisible = false, TextAlign = HorizontalAlignment.Center,IsEditable = false, Width = 60,
                 AspectGetter = item => ((Hero)item).Controversy,
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "Settlement", IsVisible = false,TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 100,
+                Text = "定居点", IsVisible = false,TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 100,
                 AspectGetter = item => ((Hero)item).CurrentSettlement?.Name?.ToString(),
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "LastSeen", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 140,
+                Text = "上次出现", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 140,
                 AspectGetter = item => ((Hero)item).LastSeenPlace?.Name?.ToString(),
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "IsDead", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
+                Text = "死亡", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Hero)item).IsDead,
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "IsLeader", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 100,
+                Text = "领袖", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 100,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Hero)item).IsFactionLeader,
             });
             lstNPCs.AllColumns.Add(new OLVColumn {
-                Text = "Trade Gold", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 90,
+                Text = "金钱", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 90,
                 AspectGetter = item => ((Hero)item).Gold,
                 AspectPutter = (item, value) => { ((Hero)item).Gold = Math.Max(0, Convert.ToInt32(value)); },
             });
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Target", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
+                Text = "目标", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => "Target"
             });
             lstNPCs.AllColumns.Add(new OLVColumn
             {
-                Text = "Teleport", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
+                Text = "传送", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => "Teleport"
             });
@@ -164,7 +161,7 @@ namespace MBEditor.Tabs
             lstNPCs.CellEditFinishing += MBEditor.Extensions.DarkUI_ObjectList_CellEditFinishing;
             lstNPCs.ButtonClick += LstNPCs_ButtonClick;
 
-            lstNPCs.AllColumns.First(x => x.Text == "IsDead").ValuesChosenForFiltering = new List<bool> { false }; // remove dead people
+            lstNPCs.AllColumns.First(x => x.Text == "死亡").ValuesChosenForFiltering = new List<bool> { false }; // remove dead people
             this.lstNPCs.UpdateColumnFiltering();
         }
 
@@ -190,12 +187,12 @@ namespace MBEditor.Tabs
                 var other = (Hero)e.Model;
                 if (other.CurrentSettlement != null)
                 {
+                    
                     var settle = other.CurrentSettlement;
-                    Player.PartyBelongedTo.Position2D = MobilePartyHelper.FindReachablePointAroundPosition(partyBase,settle.GatePosition, 4f, 3f, false);
-
+                    Player.PartyBelongedTo.Position2D = Helpers.MobilePartyHelper.FindReachablePointAroundPosition(null, settle.GatePosition, 4f, 3f, false);
                     Player.PartyBelongedTo.SetMoveGoToSettlement(settle);
                 } else if(other.PartyBelongedTo != null) {
-                    Player.PartyBelongedTo.Position2D = MobilePartyHelper.FindReachablePointAroundPosition(partyBase, other.GetMapPoint().Position2D, 4f, 3f, false);
+                    Player.PartyBelongedTo.Position2D = Helpers.MobilePartyHelper.FindReachablePointAroundPosition(null, other.GetMapPoint().Position2D, 4f, 3f, false);
                     Player.PartyBelongedTo.SetMoveEngageParty(other.PartyBelongedTo);
                 }
                 var form = this.FindForm();
@@ -281,12 +278,12 @@ namespace MBEditor.Tabs
         }
         private void InitAttrPanel()
         {
-            var attrs = new TabHeroAttrs() { DockText = "Attributes" };
+            var attrs = new TabHeroAttrs() { DockText = "属性" };
             dockPanel.AddContent(attrs);
-            dockPanel.AddContent(new TabHeroPerks() { DockText = "Perks" }, attrs.DockGroup);
-            dockPanel.AddContent(new TabHeroSkills() { DockText = "Skills" }, attrs.DockGroup);
-            dockPanel.AddContent(new TabHeroTraits() { DockText = "Traits" }, attrs.DockGroup);
-            dockPanel.AddContent(new TabHeroRelations() { DockText = "Relations" }, attrs.DockGroup);
+            dockPanel.AddContent(new TabHeroPerks() { DockText = "技巧" }, attrs.DockGroup);
+            dockPanel.AddContent(new TabHeroSkills() { DockText = "技能" }, attrs.DockGroup);
+            dockPanel.AddContent(new TabHeroTraits() { DockText = "特质" }, attrs.DockGroup);
+            dockPanel.AddContent(new TabHeroRelations() { DockText = "关系" }, attrs.DockGroup);
 
             //dockPanel.ActiveContent = content; // main document
             dockPanel.ActiveContent = attrs; // attributes
@@ -328,10 +325,7 @@ namespace MBEditor.Tabs
             }
         }
 
-        public string SettingsName => "NPCs";
-
-        public PartyBase partyBase { get; private set; }
-
+        public string SettingsName => "角色";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

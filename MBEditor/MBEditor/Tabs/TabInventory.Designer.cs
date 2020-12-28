@@ -91,7 +91,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 0;
-            this.label22.Text = "Item Filter:";
+            this.label22.Text = "物品筛选:";
             // 
             // lstInvEquipment
             // 
@@ -150,7 +150,7 @@
             this.labelAmount.Name = "labelAmount";
             this.labelAmount.Size = new System.Drawing.Size(43, 13);
             this.labelAmount.TabIndex = 5;
-            this.labelAmount.Text = "Amount";
+            this.labelAmount.Text = "数量";
             // 
             // btnInvAdd
             // 
@@ -161,7 +161,7 @@
             this.btnInvAdd.Padding = new System.Windows.Forms.Padding(5);
             this.btnInvAdd.Size = new System.Drawing.Size(42, 21);
             this.btnInvAdd.TabIndex = 7;
-            this.btnInvAdd.Text = "Add";
+            this.btnInvAdd.Text = "添加";
             this.btnInvAdd.Click += new System.EventHandler(this.btnInvAdd_Click);
             // 
             // btnInvRemove
@@ -173,7 +173,7 @@
             this.btnInvRemove.Padding = new System.Windows.Forms.Padding(5);
             this.btnInvRemove.Size = new System.Drawing.Size(96, 21);
             this.btnInvRemove.TabIndex = 2;
-            this.btnInvRemove.Text = "Remove";
+            this.btnInvRemove.Text = "删除";
             this.btnInvRemove.Click += new System.EventHandler(this.btnInvRemove_Click);
             // 
             // pnlLeft
@@ -219,7 +219,7 @@
             this.olvColumn1.AspectName = "Name";
             this.olvColumn1.IsEditable = false;
             this.olvColumn1.MinimumWidth = 50;
-            this.olvColumn1.Text = "Name";
+            this.olvColumn1.Text = "名称";
             this.olvColumn1.UseInitialLetterForGroup = true;
             this.olvColumn1.Width = 235;
             // 
@@ -246,7 +246,7 @@
             this.btnApplyMods.Padding = new System.Windows.Forms.Padding(5);
             this.btnApplyMods.Size = new System.Drawing.Size(96, 21);
             this.btnApplyMods.TabIndex = 5;
-            this.btnApplyMods.Text = "Apply Mods";
+            this.btnApplyMods.Text = "应用";
             this.tooltip.SetToolTip(this.btnApplyMods, "Apply Default Mods to Items without Mods");
             this.btnApplyMods.Click += new System.EventHandler(this.btnApplyMods_Click);
             // 
@@ -259,7 +259,7 @@
             this.btnSortItems.Padding = new System.Windows.Forms.Padding(5);
             this.btnSortItems.Size = new System.Drawing.Size(96, 21);
             this.btnSortItems.TabIndex = 4;
-            this.btnSortItems.Text = "Sort Inventory";
+            this.btnSortItems.Text = "背包排序";
             this.btnSortItems.Click += new System.EventHandler(this.btnSortItems_Click);
             // 
             // btnEnsureFood
@@ -271,7 +271,7 @@
             this.btnEnsureFood.Padding = new System.Windows.Forms.Padding(5);
             this.btnEnsureFood.Size = new System.Drawing.Size(96, 21);
             this.btnEnsureFood.TabIndex = 3;
-            this.btnEnsureFood.Text = "Ensure Food";
+            this.btnEnsureFood.Text = "确保食物";
             this.tooltip.SetToolTip(this.btnEnsureFood, "Ensure at least 25 of each Food");
             this.btnEnsureFood.Click += new System.EventHandler(this.btnEnsureFood_Click);
             // 

@@ -80,7 +80,7 @@
             this.grModifiers.Size = new System.Drawing.Size(391, 550);
             this.grModifiers.TabIndex = 0;
             this.grModifiers.TabStop = false;
-            this.grModifiers.Text = "Modifiers";
+            this.grModifiers.Text = "前缀";
             // 
             // txtItemModExplain
             // 
@@ -93,7 +93,7 @@
             this.txtItemModExplain.ReadOnly = true;
             this.txtItemModExplain.Size = new System.Drawing.Size(339, 44);
             this.txtItemModExplain.TabIndex = 4;
-            this.txtItemModExplain.Text = "Save and Reload of Game may be required for these changes to appear.";
+            this.txtItemModExplain.Text = "要显示这些更改，可能需要保存并重新加载游戏。";
             this.txtItemModExplain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grpCraftOverrides
@@ -118,7 +118,7 @@
             this.grpCraftOverrides.Size = new System.Drawing.Size(350, 169);
             this.grpCraftOverrides.TabIndex = 2;
             this.grpCraftOverrides.TabStop = false;
-            this.grpCraftOverrides.Text = "Override Data";
+            this.grpCraftOverrides.Text = "覆盖数据";
             // 
             // label25
             // 
@@ -129,7 +129,7 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(37, 13);
             this.label25.TabIndex = 2;
-            this.label25.Text = "Thrust";
+            this.label25.Text = "穿刺";
             // 
             // lblCraftSlash
             // 
@@ -140,7 +140,7 @@
             this.lblCraftSlash.Name = "lblCraftSlash";
             this.lblCraftSlash.Size = new System.Drawing.Size(33, 13);
             this.lblCraftSlash.TabIndex = 1;
-            this.lblCraftSlash.Text = "Slash";
+            this.lblCraftSlash.Text = "挥砍";
             // 
             // numCraftWeight
             // 
@@ -202,7 +202,7 @@
             this.lblCraftHandling.Name = "lblCraftHandling";
             this.lblCraftHandling.Size = new System.Drawing.Size(52, 13);
             this.lblCraftHandling.TabIndex = 10;
-            this.lblCraftHandling.Text = "&Handling:";
+            this.lblCraftHandling.Text = "&操控:";
             // 
             // numCraftHandling
             // 
@@ -259,7 +259,7 @@
             this.lblCraftSwingDamage.Name = "lblCraftSwingDamage";
             this.lblCraftSwingDamage.Size = new System.Drawing.Size(50, 13);
             this.lblCraftSwingDamage.TabIndex = 0;
-            this.lblCraftSwingDamage.Text = "Damage:";
+            this.lblCraftSwingDamage.Text = "伤害:";
             // 
             // numCraftSwingSpeed
             // 
@@ -316,7 +316,7 @@
             this.lblCraftWeight.Name = "lblCraftWeight";
             this.lblCraftWeight.Size = new System.Drawing.Size(44, 13);
             this.lblCraftWeight.TabIndex = 8;
-            this.lblCraftWeight.Text = "Weight:";
+            this.lblCraftWeight.Text = "重量:";
             // 
             // lblCraftSwingSpeed
             // 
@@ -327,7 +327,7 @@
             this.lblCraftSwingSpeed.Name = "lblCraftSwingSpeed";
             this.lblCraftSwingSpeed.Size = new System.Drawing.Size(41, 13);
             this.lblCraftSwingSpeed.TabIndex = 3;
-            this.lblCraftSwingSpeed.Text = "Speed:";
+            this.lblCraftSwingSpeed.Text = "速度:";
             // 
             // txtCraftedName
             // 
@@ -349,7 +349,7 @@
             this.btnCraftedCommit.Padding = new System.Windows.Forms.Padding(1);
             this.btnCraftedCommit.Size = new System.Drawing.Size(69, 22);
             this.btnCraftedCommit.TabIndex = 3;
-            this.btnCraftedCommit.Text = "Commit";
+            this.btnCraftedCommit.Text = "修改";
             this.btnCraftedCommit.Click += new System.EventHandler(this.btnCraftedCommit_Click);
             // 
             // label24
@@ -361,7 +361,7 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(38, 13);
             this.label24.TabIndex = 0;
-            this.label24.Text = "&Name:";
+            this.label24.Text = "&名称:";
             // 
             // lstCraftedItems
             // 
@@ -404,7 +404,7 @@
             this.grpCraftedItems.Size = new System.Drawing.Size(381, 550);
             this.grpCraftedItems.TabIndex = 2;
             this.grpCraftedItems.TabStop = false;
-            this.grpCraftedItems.Text = "Crafted Items:";
+            this.grpCraftedItems.Text = "锻造物品:";
             // 
             // TabCrafted
             // 

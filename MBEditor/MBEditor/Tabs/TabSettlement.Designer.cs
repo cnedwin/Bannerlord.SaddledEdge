@@ -124,7 +124,7 @@
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tabInfo.Size = new System.Drawing.Size(360, 521);
             this.tabInfo.TabIndex = 0;
-            this.tabInfo.Text = "Info";
+            this.tabInfo.Text = "信息";
             // 
             // grpBuildingQueue
             // 
@@ -137,7 +137,7 @@
             this.grpBuildingQueue.Size = new System.Drawing.Size(346, 256);
             this.grpBuildingQueue.TabIndex = 5;
             this.grpBuildingQueue.TabStop = false;
-            this.grpBuildingQueue.Text = "Building Queue";
+            this.grpBuildingQueue.Text = "建造队列";
             // 
             // lstBuildingQueue
             // 
@@ -168,7 +168,7 @@
             this.grpBuilding.Size = new System.Drawing.Size(348, 80);
             this.grpBuilding.TabIndex = 4;
             this.grpBuilding.TabStop = false;
-            this.grpBuilding.Text = "Building";
+            this.grpBuilding.Text = "建造";
             // 
             // btnFinishQueue
             // 
@@ -187,7 +187,7 @@
             this.btnFinishBuilding.Padding = new System.Windows.Forms.Padding(5);
             this.btnFinishBuilding.Size = new System.Drawing.Size(77, 23);
             this.btnFinishBuilding.TabIndex = 2;
-            this.btnFinishBuilding.Text = "Finish";
+            this.btnFinishBuilding.Text = "完成";
             this.btnFinishBuilding.Click += new System.EventHandler(this.btnFinishBuilding_Click);
             // 
             // txtBuildingCurrent
@@ -211,7 +211,7 @@
             this.darkLabel1.Name = "darkLabel1";
             this.darkLabel1.Size = new System.Drawing.Size(44, 13);
             this.darkLabel1.TabIndex = 0;
-            this.darkLabel1.Text = "Current:";
+            this.darkLabel1.Text = "当前:";
             // 
             // txtDisplayName
             // 
@@ -234,7 +234,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(38, 13);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name:";
+            this.lblName.Text = "名称:";
             // 
             // tabDetails
             // 
@@ -246,7 +246,7 @@
             this.tabDetails.Padding = new System.Windows.Forms.Padding(3);
             this.tabDetails.Size = new System.Drawing.Size(356, 521);
             this.tabDetails.TabIndex = 1;
-            this.tabDetails.Text = "Details";
+            this.tabDetails.Text = "详情";
             // 
             // darkPropertyGrid1
             // 

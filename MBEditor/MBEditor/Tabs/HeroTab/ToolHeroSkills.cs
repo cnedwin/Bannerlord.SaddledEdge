@@ -54,12 +54,12 @@ namespace MBEditor.Tabs.HeroTab
 
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Skill", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
+                Text = "技能", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
                 AspectGetter = item => ((SkillObject)item).Name?.ToString(),
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Value", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
+                Text = "数值", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
                 AspectGetter = item => selHero?.GetSkillValue((SkillObject)item) ,
                 AspectPutter = (item, value) => {
                     if (selHero == null || item == null) return;
@@ -82,7 +82,7 @@ namespace MBEditor.Tabs.HeroTab
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Focus", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
+                Text = "专精", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
                 AspectGetter = item => selHero?.HeroDeveloper?.GetFocus((SkillObject)item),
                 AspectPutter = (item, value) => {
                     var dev = selHero?.HeroDeveloper;
@@ -94,18 +94,18 @@ namespace MBEditor.Tabs.HeroTab
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Xp", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
+                Text = "经验", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
                 AspectGetter = item => selHero?.HeroDeveloper.GetPropertyValue((SkillObject)item) ,
                 AspectPutter = (item, value) => selHero?.HeroDeveloper.SetPropertyValue((SkillObject)item, Math.Max(0, Math.Min((float)int.MaxValue, Convert.ToSingle(value))))
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Lower Xp", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
+                Text = "最低经验", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
                 AspectGetter = item => Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel( selHero?.GetSkillValue((SkillObject)item) ?? 0 ),
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Upper Xp", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
+                Text = "经验上限", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = false, Width = 120,
                 AspectGetter = item => Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel( (selHero?.GetSkillValue((SkillObject)item) ?? 0) + 1 ),
             });
             lstItems.Columns.Clear();

@@ -81,7 +81,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Full Name:";
+            this.label1.Text = "全名:";
             // 
             // numAge
             // 
@@ -118,7 +118,7 @@
             this.lblCharAge.Name = "lblCharAge";
             this.lblCharAge.Size = new System.Drawing.Size(29, 13);
             this.lblCharAge.TabIndex = 2;
-            this.lblCharAge.Text = "Age:";
+            this.lblCharAge.Text = "年龄:";
             // 
             // numLevel
             // 
@@ -143,7 +143,7 @@
             this.numLevel.Name = "numLevel";
             this.numLevel.Size = new System.Drawing.Size(82, 20);
             this.numLevel.TabIndex = 7;
-            this.ToolTip.SetToolTip(this.numLevel, "Level is based on Skill XP.  Change Skills to impact level properly.");
+            this.ToolTip.SetToolTip(this.numLevel, "等级基于技能经验。 更改技能以正确影响等级。");
             this.numLevel.Value = new decimal(new int[] {
             1,
             0,
@@ -161,7 +161,7 @@
             this.lblLevel.Name = "lblLevel";
             this.lblLevel.Size = new System.Drawing.Size(36, 13);
             this.lblLevel.TabIndex = 6;
-            this.lblLevel.Text = "Level:";
+            this.lblLevel.Text = "等级:";
             // 
             // txtFirstName
             // 
@@ -186,7 +186,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(60, 13);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "First Name:";
+            this.lblName.Text = "姓氏:";
             // 
             // btnMakeSibling
             // 
@@ -195,7 +195,7 @@
             this.btnMakeSibling.Padding = new System.Windows.Forms.Padding(1);
             this.btnMakeSibling.Size = new System.Drawing.Size(86, 20);
             this.btnMakeSibling.TabIndex = 18;
-            this.btnMakeSibling.Text = "Make Sibling";
+            this.btnMakeSibling.Text = "兄弟姐妹";
             this.btnMakeSibling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMakeSibling.Click += new System.EventHandler(this.btnMakeSibling_Click);
             // 
@@ -206,7 +206,7 @@
             this.btnBodyPropsPaste.Padding = new System.Windows.Forms.Padding(1);
             this.btnBodyPropsPaste.Size = new System.Drawing.Size(72, 20);
             this.btnBodyPropsPaste.TabIndex = 16;
-            this.btnBodyPropsPaste.Text = "Paste";
+            this.btnBodyPropsPaste.Text = "粘贴";
             this.btnBodyPropsPaste.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBodyPropsPaste.Click += new System.EventHandler(this.btnBodyPropsPaste_Click);
             // 
@@ -217,7 +217,7 @@
             this.btnBodyPropsCopy.Padding = new System.Windows.Forms.Padding(1);
             this.btnBodyPropsCopy.Size = new System.Drawing.Size(73, 20);
             this.btnBodyPropsCopy.TabIndex = 15;
-            this.btnBodyPropsCopy.Text = "Copy";
+            this.btnBodyPropsCopy.Text = "复制";
             this.btnBodyPropsCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBodyPropsCopy.Click += new System.EventHandler(this.btnBodyPropsCopy_Click);
             // 
@@ -258,7 +258,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(71, 13);
             this.label21.TabIndex = 12;
-            this.label21.Text = "Focus Points:";
+            this.label21.Text = "专精点:";
             // 
             // label20
             // 
@@ -269,7 +269,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(81, 13);
             this.label20.TabIndex = 10;
-            this.label20.Text = "Attribute Points:";
+            this.label20.Text = "属性点:";
             // 
             // numHealth
             // 
@@ -309,7 +309,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(41, 13);
             this.label18.TabIndex = 8;
-            this.label18.Text = "Health:";
+            this.label18.Text = "血量:";
             // 
             // lblActions
             // 
@@ -320,7 +320,7 @@
             this.lblActions.Name = "lblActions";
             this.lblActions.Size = new System.Drawing.Size(45, 13);
             this.lblActions.TabIndex = 17;
-            this.lblActions.Text = "Actions:";
+            this.lblActions.Text = "行为:";
             // 
             // lblBodyProps
             // 
@@ -331,7 +331,7 @@
             this.lblBodyProps.Name = "lblBodyProps";
             this.lblBodyProps.Size = new System.Drawing.Size(84, 13);
             this.lblBodyProps.TabIndex = 14;
-            this.lblBodyProps.Text = "Body Properties:";
+            this.lblBodyProps.Text = "身体特征:";
             // 
             // lblClan
             // 
@@ -341,7 +341,7 @@
             this.lblClan.Name = "lblClan";
             this.lblClan.Size = new System.Drawing.Size(31, 13);
             this.lblClan.TabIndex = 19;
-            this.lblClan.Text = "Clan:";
+            this.lblClan.Text = "氏族:";
             // 
             // cboClanInfo
             // 

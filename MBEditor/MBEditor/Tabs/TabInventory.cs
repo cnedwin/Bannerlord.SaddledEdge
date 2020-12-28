@@ -6,21 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
+using BrightIdeasSoftware;
+using DarkUI;
 
 namespace MBEditor.Tabs
 {
-    using TaleWorlds.CampaignSystem;
-    using TaleWorlds.Core;
-    using TaleWorlds.Library;
-    using BrightIdeasSoftware;
-    using DarkUI;
+
 
     public partial class TabInventory : DarkUI.Docking.DarkDocument, ITab, IStateSerializer
     {
         private const string defaultNoneName = "<None>";
         private static string[] itemTypeNames = new string[] {
-            "All", "Horse", "One Handed Weapons", "Two Handed Weapons", "Polearms", "Arrows", "Bolts", "Shields", "Bows", "Crossbows", "Thrown", "Goods", "Helmets", "Body Armor", "Leg Armor", "Hand Armor",
-            "Pistols", "Muskets", "Bullets", "Animals", "Books", "Chest Armor", "Capes", "Horse Harnesses", "Banners"
+            "全部", "坐骑", "单手武器", "双手武器", "长杆", "箭矢", "弩矢", "盾牌", "弓", "十字弩", "投掷", "物品", "头盔", "盔甲", "护腿", "手斧",
+            "火枪", "步枪", "子弹", "动物", "书籍", "胸甲", "斗篷", "马具", "旗帜"
         };
 
         #region SubClasses
@@ -104,34 +105,34 @@ namespace MBEditor.Tabs
             lstAllItems.AllColumns.Clear();
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Name", IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 200, MinimumWidth = 80,
+                Text = "名称", IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 200, MinimumWidth = 80,
                 AspectGetter = item => ((ItemObject)item).Name?.ToString(),
             });
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Type", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 175,
+                Text = "类型", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 175,
                 AspectGetter = item => itemTypeNames[(int)((ItemObject)item).ItemType],
             });
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Tier", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 50,
+                Text = "等阶", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 50,
                 AspectGetter = item => ((ItemObject)item).Tier,
             });
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Food", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
+                Text = "食物", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((ItemObject)item).IsFood,
             });
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Animal", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
+                Text = "动物", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((ItemObject)item).IsAnimal,
             });
             lstAllItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Weight", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
+                Text = "重量", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((ItemObject)item).Weight,
             });
@@ -153,34 +154,35 @@ namespace MBEditor.Tabs
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Name",IsVisible = true,TextAlign = HorizontalAlignment.Left,IsEditable = false,Width = 260,MinimumWidth = 100,
+                Text = "名称",IsVisible = true,TextAlign = HorizontalAlignment.Left,IsEditable = false,Width = 260,MinimumWidth = 100,
                 AspectGetter = item => this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item)?.Name?.ToString(),
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Amount",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60, Width = 86,
+                Text = "数量",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60, Width = 86,
                 AspectGetter = item => this.Player.PartyBelongedTo.ItemRoster.GetElementNumber((int)item),
                 AspectPutter = (item, value) =>
                 {
                     var oldvalue = this.Player.PartyBelongedTo.ItemRoster.GetElementNumber((int)item);
+                    var itme2 = this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item);
                     int newvalue = System.Convert.ToInt32(value);
                     int diff = newvalue - oldvalue;
-                    this.Player.PartyBelongedTo.ItemRoster.AddToCountsAtIndex((int)item, diff, true);
+                    this.Player.PartyBelongedTo.ItemRoster.AddToCounts(itme2, diff);
                 },
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Type", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 60, Width = 180,
+                Text = "类型", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 60, Width = 180,
                 AspectGetter = item => itemTypeNames[(int)this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).ItemType],
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Tier", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 50,
+                Text = "等阶", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 50,
                 AspectGetter = item => this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).Tier,
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Weight", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 95,
+                Text = "重量", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 95,
                 AspectGetter = item => {
                     var weight = this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).Weight;
                     var mod = this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item).EquipmentElement.ItemModifier;
@@ -189,57 +191,57 @@ namespace MBEditor.Tabs
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Swing Damage", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 95,
+                Text = "挥砍伤害", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 95,
                 AspectGetter = item => {
                     var weapon = this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).WeaponComponent;
                     if (weapon == null) return null;
-                    return Helpers.ItemHelper.GetSwingDamageText(weapon.PrimaryWeapon, itemModifier).ToString();
+                    return Helpers.ItemHelper.GetSwingDamageText(weapon.PrimaryWeapon,itemModifier).ToString();
                 }
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Thrust Damage", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "穿刺伤害", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => {
                     var weapon = this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).WeaponComponent;
                     if (weapon == null) return null;
-                    return Helpers.ItemHelper.GetThrustDamageText(weapon.PrimaryWeapon, itemModifier).ToString();
+                    return Helpers.ItemHelper.GetThrustDamageText(weapon.PrimaryWeapon,itemModifier).ToString();
                 }
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Effectiveness", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "效果", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex((int)item).Effectiveness,
             });
 
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Modifier", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = true, MinimumWidth = 150, Width = 210,
+                Text = "前缀", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = true, MinimumWidth = 150, Width = 210,
                 AspectGetter = item => this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item).EquipmentElement.ItemModifier?.StringId,
                 AspectPutter = (item, value) => { },
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Head Armor", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "头盔", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => GetArmorTooltip(this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item), ItemObject.ItemTypeEnum.HeadArmor)
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Body Armor", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "盔甲", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => GetArmorTooltip(this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item), ItemObject.ItemTypeEnum.BodyArmor)
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Hand Armor", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "手套", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => GetArmorTooltip(this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item), ItemObject.ItemTypeEnum.HandArmor)
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Leg Armor", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "护腿", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => GetArmorTooltip(this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item), ItemObject.ItemTypeEnum.LegArmor)
             });
             lstInvEquipment.AllColumns.Add(new OLVColumn
             {
-                Text = "Horse Armor", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
+                Text = "马具", IsVisible = false, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 40, Width = 100,
                 AspectGetter = item => GetArmorTooltip(this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex((int)item), ItemObject.ItemTypeEnum.HorseHarness)
             });
 
@@ -269,7 +271,7 @@ namespace MBEditor.Tabs
 
         private void lstInvEquipment_CellEditStarting(object sender, CellEditEventArgs e)
         {
-            if (e.Column.Text == "Modifier")
+            if (e.Column.Text == "前缀")
             {
                 var cb = new DarkUI.Controls.DarkComboBox
                 {
@@ -289,7 +291,7 @@ namespace MBEditor.Tabs
                     var modInfo = (cb.SelectedItem as InvItemModInfo)?.item;
                     if (modInfo == lastMod) return;
                     var y = new ItemRosterElement(lastSelElem.EquipmentElement.Item, lastSelElem.Amount, modInfo);
-                    this.Player.PartyBelongedTo.ItemRoster.SetElementAtIndex(lastSelIdx, y);
+                    //this.Player.PartyBelongedTo.ItemRoster.SetElementAtIndex(lastSelIdx, y);
                 };
                 e.Control = cb;
             }
@@ -302,7 +304,7 @@ namespace MBEditor.Tabs
 
         private void lstInvEquipment_CellEditFinishing(object sender, CellEditEventArgs e)
         {
-            if (e.Column.Text == "Modifier")
+            if (e.Column.Text == "前缀")
             {
                 e.Control = null;
                 ((ObjectListView)sender).RefreshItem(e.ListViewItem);
@@ -446,7 +448,7 @@ namespace MBEditor.Tabs
                     }
                     else
                     {
-                        this.Player.PartyBelongedTo.ItemRoster.AddToCountsAtIndex(idx, number, true);                        
+                        this.Player.PartyBelongedTo.ItemRoster.AddToCounts(this.Player.PartyBelongedTo.ItemRoster.GetItemAtIndex(idx), number);                        
                         lstInvEquipment.RefreshObject(idx);
                     }
                 }
@@ -461,7 +463,7 @@ namespace MBEditor.Tabs
             {
                 var lastSelIdx = (int)idxObj;
                 var lastSelElem = this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex(lastSelIdx);
-                this.Player.PartyBelongedTo.Party.ItemRoster.Remove(lastSelElem, true);
+                this.Player.PartyBelongedTo.Party.ItemRoster.Remove(lastSelElem);
                 this.UpdateInventoryList();
             }
             this.lstInvEquipment.SelectedIndex = idx-1;
@@ -487,12 +489,12 @@ namespace MBEditor.Tabs
                     var itemelem = this.Player.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex(curidx);
                     if (itemelem.EquipmentElement.ItemModifier == null && mod != null)
                     {
-                        this.Player.PartyBelongedTo.ItemRoster.SetElementAtIndex(curidx, new ItemRosterElement(food, Math.Max(itemelem.Amount, minCount), mod));
+                        this.Player.PartyBelongedTo.ItemRoster.AddToCounts(food, Math.Max(itemelem.Amount, minCount));
                     }
                     else
                     {
                         if (itemelem.Amount < minCount)
-                            this.Player.PartyBelongedTo.ItemRoster.SetElementNumber(curidx, Math.Max(itemelem.Amount, minCount));
+                            this.Player.PartyBelongedTo.ItemRoster.AddToCounts(food, Math.Max(itemelem.Amount, minCount));
                     }
                     var newidx = this.Player.PartyBelongedTo.ItemRoster.FindIndexFirstAfterXthElement(x => x == food, curidx);
                     if (newidx <= curidx) break;
@@ -559,7 +561,7 @@ namespace MBEditor.Tabs
 
         private void btnApplyMods_Click(object sender, EventArgs e)
         {
-            var originalElements = this.Player.PartyBelongedTo.ItemRoster.GetCopyOfAllElements();
+            //var originalElements = this.Player.PartyBelongedTo.ItemRoster.GetCopyOfAllElements();
 
             var mods = new Dictionary<ItemObject.ItemTypeEnum, ItemModifier>();
             var modList = ObjectCache.GetObjectTypeList<ItemModifier>();
@@ -578,7 +580,7 @@ namespace MBEditor.Tabs
                     if (item == null) continue;
                     if (mods.TryGetValue(item.ItemType, out var mod) && mod != null)
                     {
-                        this.Player.PartyBelongedTo.ItemRoster.SetElementAtIndex(i, new ItemRosterElement(elem.EquipmentElement.Item, elem.Amount, mod));
+                        //this.Player.PartyBelongedTo.ItemRoster.SetElementAtIndex(i, new ItemRosterElement(elem.EquipmentElement.Item, elem.Amount, mod));
                         lstInvEquipment.UpdateObject(i);
                         continue;
                     }
@@ -588,7 +590,7 @@ namespace MBEditor.Tabs
             UpdateInventoryList(refresh: true);
         }
 
-        public string SettingsName => "Inventory";
+        public string SettingsName => "背包";
 
         public ItemModifier itemModifier { get; private set; }
 

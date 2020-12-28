@@ -66,7 +66,7 @@
             this.olvNPCName.AspectName = "Name";
             this.olvNPCName.IsEditable = false;
             this.olvNPCName.MinimumWidth = 50;
-            this.olvNPCName.Text = "Name";
+            this.olvNPCName.Text = "姓名";
             this.olvNPCName.UseInitialLetterForGroup = true;
             this.olvNPCName.Width = 235;
             // 

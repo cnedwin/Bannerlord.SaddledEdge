@@ -54,22 +54,22 @@ namespace MBEditor.Tabs.HeroTab
 
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Name",IsVisible = true,TextAlign = HorizontalAlignment.Left,IsEditable = false,MinimumWidth = 80,Width = 100,
+                Text = "姓名",IsVisible = true,TextAlign = HorizontalAlignment.Left,IsEditable = false,MinimumWidth = 80,Width = 100,
                 AspectGetter = item => ((Hero)item).Name?.ToString() ?? "<None>",
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Clan",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 100,
+                Text = "氏族",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 100,
                 AspectGetter = item => ((Hero)item).Clan?.Name?.ToString() ?? "<None>",
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Relations", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true,
+                Text = "关系", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = true,
                 AspectGetter = item => ((Hero)item).GetRelation(this.Coordinator.Hero ?? player),
                 AspectPutter = (item, value) => { ((Hero)item).SetPersonalRelation(this.Coordinator.Hero?? player, Convert.ToInt32(value)); }
             });
             lstItems.AllColumns.Add(new OLVColumn {
-                Text = "IsLeader", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,
+                Text = "领袖", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Hero)item).IsFactionLeader,
             });

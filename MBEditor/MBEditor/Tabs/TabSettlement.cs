@@ -67,22 +67,22 @@ namespace MBEditor.Tabs
             this.lstItems.Columns.Clear();
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Name", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 180,
+                Text = "名称", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 180,
                 AspectGetter = item => ((Settlement)item).Name?.ToString() ?? "<None>",
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Owner", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 140,
+                Text = "领主", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 140,
                 AspectGetter = item => ((Settlement)item).OwnerClan?.Name?.ToString() ?? "<None>",
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Building", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 150,
+                Text = "建造", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 150,
                 AspectGetter = item => ((Settlement)item).Town?.CurrentBuilding?.Name?.ToString()
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Finish", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
+                Text = "结束", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item =>
                 {
@@ -98,33 +98,33 @@ namespace MBEditor.Tabs
             //    AspectGetter = item => "Focus",
             //});
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "Security", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
+                Text = "治安", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
                 AspectGetter = item => (decimal?)(((Settlement)item).Town?.Security),
                 AspectPutter = (item, value) => {
                     if (((Settlement)item).Town == null) return;
                     ((Settlement)item).Town.Security = Math.Max(0.0f, Convert.ToSingle(value)); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "Food", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
+                Text = "食物", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
                 AspectGetter = item => (decimal?)(((Settlement)item).Town?.FoodStocks),
                 AspectPutter = (item, value) => {
                     if (((Settlement)item).Town == null) return;
                     ((Settlement)item).Town.FoodStocks = Math.Max(0.0f, Convert.ToSingle(value)); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "Prosperity", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
+                Text = "繁荣", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 120,
                 AspectGetter = item => (decimal)(((Settlement)item).Prosperity),
                 AspectPutter = (item, value) => { ((Settlement)item).Prosperity = Math.Max(0.0f, Convert.ToSingle(value)); },
             });
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "Militia", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
+                Text = "民兵", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
                 AspectGetter = item => (decimal)(((Settlement)item).Militia),
-#if !MBVER_010301
+
                 AspectPutter = (item, value) => { ((Settlement)item).Militia = Math.Max(0.0f, Convert.ToSingle(value)); },
-#endif
+
             });
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "Loyalty", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
+                Text = "忠诚", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, Width = 110,
                 AspectGetter = item => (decimal?)(((Settlement)item).Town?.Loyalty),
                 AspectPutter = (item, value) => {
                     if (((Settlement)item).Town == null) return;
@@ -132,43 +132,43 @@ namespace MBEditor.Tabs
                 },
             });
             this.lstItems.AllColumns.Add(new OLVColumn {
-                Text = "State", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,  Width = 110,
+                Text = "状态", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,  Width = 110,
                 AspectGetter = item => (((Settlement)item).Village?.VillageState),
             });
 
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Town", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
+                Text = "城镇", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Settlement)item).IsTown,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Village", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
+                Text = "村庄", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Settlement)item).IsVillage,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Castle", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
+                Text = "城堡", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Settlement)item).IsCastle,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Raided", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
+                Text = "突袭", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 80,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Settlement)item).IsRaided,
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Target", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
+                Text = "目标", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => "Target"
             });
             this.lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Teleport", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
+                Text = "瞬移", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => "Teleport"
             });
@@ -192,18 +192,18 @@ namespace MBEditor.Tabs
             lstBuildingQueue.Columns.Clear();
             lstBuildingQueue.AllColumns.Add(new OLVColumn
             {
-                Text = "Name",IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 100,
+                Text = "名称",IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 100,
                 Width = 100,
                 AspectGetter = item => ((Building)item).Name?.ToString() ?? "<None>",
             });
             lstBuildingQueue.AllColumns.Add(new OLVColumn
             {
-                Text = "Level",IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 50,
+                Text = "等级",IsVisible = true,TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 50,
                 AspectGetter = item => ((Building)item).CurrentLevel,
             });
             lstBuildingQueue.AllColumns.Add(new OLVColumn
             {
-                Text = "Finish", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "完成", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item =>
                 {
@@ -213,13 +213,13 @@ namespace MBEditor.Tabs
             });
             lstBuildingQueue.AllColumns.Add(new OLVColumn
             {
-                Text = "Level Down", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "降级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => (((Building)item).CurrentLevel > 0) ? "-1" : null,
             });
             lstBuildingQueue.AllColumns.Add(new OLVColumn
             {
-                Text = "Level Up", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "升级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.ColumnButtonRenderer(), IsButton = true,
                 AspectGetter = item => (((Building)item).CurrentLevel < 3) ? "+1" : null,
             });
@@ -251,7 +251,7 @@ namespace MBEditor.Tabs
 
         private void LstBuildingQueue_ButtonClick(object sender, CellClickEventArgs e)
         {
-            if (e.Column.Text == "Finish")
+            if (e.Column.Text == "完成")
             {
                 var building = (Building)e.Model;
                 if (building != null)
@@ -262,7 +262,7 @@ namespace MBEditor.Tabs
                 lstBuildingQueue.UpdateObject(e.Model);
                 lstItems.UpdateObject(lstItems.SelectedItem);
             }
-            else if (e.Column.Text == "Level Up")
+            else if (e.Column.Text == "升级")
             {
                 var building = (Building)e.Model;
                 if (building != null)
@@ -270,7 +270,7 @@ namespace MBEditor.Tabs
                 lstBuildingQueue.UpdateObject(e.Model);
                 lstItems.UpdateObject(lstItems.SelectedItem);
             }
-            else if (e.Column.Text == "Level Down")
+            else if (e.Column.Text == "降级")
             {
                 var building = (Building)e.Model;
                 if (building != null)
@@ -299,7 +299,7 @@ namespace MBEditor.Tabs
 
         private void LstItems_ButtonClick(object sender, CellClickEventArgs e)
         {
-            if (e.Column.Text == "Finish")
+            if (e.Column.Text == "完成")
             {
                 var building = ((Settlement)e.Model).Town?.CurrentBuilding;
                 if (building != null)
@@ -309,27 +309,28 @@ namespace MBEditor.Tabs
                 }
                 lstItems.UpdateObject(e.Model);
             }
-            else if (e.Column.Text == "Focus")
+            else if (e.Column.Text == "专精")
             {
 
             }
-            else if (e.Column.Text == "Max")
+            else if (e.Column.Text == "最大")
             {
                 foreach (Building building in ((Settlement)e.Model).Town.Buildings)
                     if (building.BuildingProgress >= building.GetConstructionCost())
                         building.CurrentLevel = 3;
             }
-            else if (e.Column.Text == "Target")
+            else if (e.Column.Text == "目标")
             {
                 Player.PartyBelongedTo.SetMoveGoToSettlement((Settlement)e.Model);
 
                 var form = this.FindForm();
                 if (form != null) form.Visible = false;
             }
-            else if (e.Column.Text == "Teleport")
+            else if (e.Column.Text == "瞬移")
             {
                 var settle = ((Settlement)e.Model);
-                Player.PartyBelongedTo.Position2D = Helpers.MobilePartyHelper.FindReachablePointAroundPosition(partyBase, settle.GatePosition, 4f, 3f, false);
+
+                Player.PartyBelongedTo.Position2D = Helpers.MobilePartyHelper.FindReachablePointAroundPosition(null, settle.GatePosition, 4f, 3f, false);
                 Player.PartyBelongedTo.SetMoveGoToSettlement((Settlement)e.Model);
 
                 var form = this.FindForm();
@@ -399,7 +400,7 @@ namespace MBEditor.Tabs
                 {
                     txtBuildingCurrent.Text = town.CurrentBuilding?.Name?.ToString();
                     var buildings = typeof(Town).GetField("BuildingsInProgress", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).GetValue(town) as System.Collections.ICollection;
-                    lstBuildingQueue.SetObjects(buildings as System.Collections.IEnumerable);
+                    lstBuildingQueue.SetObjects(buildings);
                 }
                 else
                 {
@@ -487,10 +488,7 @@ namespace MBEditor.Tabs
             this.btnFinishQueue.Click += Handler;
         }
 
-        public string SettingsName => "Settlement";
-
-        public PartyBase partyBase { get; private set; }
-
+        public string SettingsName => "定居点";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

@@ -67,7 +67,7 @@
     <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
   </PropertyGroup>
   <PropertyGroup>
-    <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SaddledEdgeEditor\bin\Win64_Shipping_Client\</OutputPath>
+    <OutputPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SaddledEdgeEditor\bin\Win64_Shipping_Client\</OutputPath>
     <IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)\$(MSBuildProjectName)\$(MB2Version)\</IntermediateOutputPath>
     <Authors>cnedwin</Authors>
   </PropertyGroup>
@@ -113,24 +113,24 @@
     <Reference Include="System.Windows.Forms">
       <HintPath>..\..\..\..\..\..\Windows\WinSxS\amd64_system.windows.forms_b77a5c561934e089_4.0.15805.0_none_8bf163462eb38db0\System.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+    <Reference Include="E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
     <!-- Bannerlord Module Assemblies  -->
-    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+    <Reference Include="E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
+    <Reference Include="E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
+    <Reference Include="E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+    <Reference Include="E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>

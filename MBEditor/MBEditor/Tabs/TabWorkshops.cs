@@ -51,35 +51,35 @@ namespace MBEditor.Tabs
         {
             this.lstItems.DefaultList();
 
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Settlement", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable=false, Width = 150,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "定居点", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable=false, Width = 150,
                 AspectGetter = item => ((Workshop)item).Settlement?.Name?.ToString() ?? "<None>",
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Owner", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 150,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "所有者", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 150,
                 AspectGetter = item => ((Workshop)item).Owner?.Name?.ToString() ?? "<None>",
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "InitCapital", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 110,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "初始资本", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 110,
                 AspectGetter = item => ((Workshop)item).InitialCapital,
                 AspectPutter = (item, value) => ((Workshop)item).GetType().GetField(BackingField("InitialCapital"), privatePropertyFlags).SetValue(item, System.Convert.ToInt32(value)),
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Capital", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 110,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "资本", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 110,
                 AspectGetter = item => ((Workshop)item).Capital,
                 AspectPutter = (item, value) => ((Workshop)item).GetType().GetField(BackingField("Capital"), privatePropertyFlags).SetValue(item, System.Convert.ToInt32(value)),
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Expense", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 110,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "花费", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 110,
                 AspectGetter = item => ((Workshop)item).Expense,
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Profit", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 110,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "利润", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 110,
                 AspectGetter = item => ((Workshop)item).ProfitMade,
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Level", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 100,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "等级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 100,
                 AspectGetter = item => ((Workshop)item).Level,
                 AspectPutter = (item, value) => ((Workshop)item).GetType().GetField(BackingField("Level"), privatePropertyFlags).SetValue(item, System.Convert.ToInt32(value)),
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Construction", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 60,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "建造", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable=true,Width = 60,
                 AspectGetter = item => ((Workshop)item).ConstructionTimeRemained,
                 AspectPutter = (item, value) => ((Workshop)item).GetType().GetField(BackingField("ConstructionTimeRemained"), privatePropertyFlags).SetValue(item, System.Convert.ToInt32(value)),
             });
-            lstItems.AllColumns.Add(new OLVColumn { Text = "Upgradable", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 130,
+            lstItems.AllColumns.Add(new OLVColumn { Text = "升级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable=false,Width = 130,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Workshop)item).CanBeUpgraded,
             });
@@ -127,7 +127,7 @@ namespace MBEditor.Tabs
             this.lstItems.SelectedObject = lastSel;
         }
 
-        public string SettingsName => "Workshops";
+        public string SettingsName => "工厂";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

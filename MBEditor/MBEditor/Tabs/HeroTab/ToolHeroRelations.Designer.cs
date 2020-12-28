@@ -50,7 +50,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lstItems);
-            this.DockText = "Relations";
+            this.DockText = "关系";
             this.Name = "TabHeroRelations";
             this.Size = new System.Drawing.Size(573, 269);
             ((System.ComponentModel.ISupportInitialize)(this.lstItems)).EndInit();

@@ -64,7 +64,7 @@
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(35, 13);
             this.lblCount.TabIndex = 1;
-            this.lblCount.Text = "Count";
+            this.lblCount.Text = "数量";
             // 
             // numTroopsAdd
             // 
@@ -104,7 +104,7 @@
             this.btnTroopsAdd.Padding = new System.Windows.Forms.Padding(1);
             this.btnTroopsAdd.Size = new System.Drawing.Size(72, 24);
             this.btnTroopsAdd.TabIndex = 3;
-            this.btnTroopsAdd.Text = "Add";
+            this.btnTroopsAdd.Text = "添加";
             this.btnTroopsAdd.Click += new System.EventHandler(this.btnTroopsAdd_Click);
             // 
             // pnlLeft
@@ -146,7 +146,7 @@
             this.olvColumn1.AspectName = "Name";
             this.olvColumn1.IsEditable = false;
             this.olvColumn1.MinimumWidth = 50;
-            this.olvColumn1.Text = "Name";
+            this.olvColumn1.Text = "名称";
             this.olvColumn1.UseInitialLetterForGroup = true;
             this.olvColumn1.Width = 235;
             // 
@@ -172,7 +172,7 @@
             this.btnPrisoners.Padding = new System.Windows.Forms.Padding(1);
             this.btnPrisoners.Size = new System.Drawing.Size(107, 21);
             this.btnPrisoners.TabIndex = 4;
-            this.btnPrisoners.Text = "Show Prisoners";
+            this.btnPrisoners.Text = "显示俘虏";
             this.btnPrisoners.Click += new System.EventHandler(this.btnPrisoners_Click);
             // 
             // lstRosterTroops
@@ -201,7 +201,7 @@
             this.btnTroopsRemove.Padding = new System.Windows.Forms.Padding(1);
             this.btnTroopsRemove.Size = new System.Drawing.Size(72, 24);
             this.btnTroopsRemove.TabIndex = 1;
-            this.btnTroopsRemove.Text = "Remove";
+            this.btnTroopsRemove.Text = "删除";
             this.btnTroopsRemove.Click += new System.EventHandler(this.btnTroopsRemove_Click);
             // 
             // btnSort
@@ -213,7 +213,7 @@
             this.btnSort.Padding = new System.Windows.Forms.Padding(1);
             this.btnSort.Size = new System.Drawing.Size(72, 24);
             this.btnSort.TabIndex = 3;
-            this.btnSort.Text = "Sort";
+            this.btnSort.Text = "排序";
             this.btnSort.Visible = false;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
@@ -226,7 +226,7 @@
             this.btnTroopsUpgrade.Padding = new System.Windows.Forms.Padding(1);
             this.btnTroopsUpgrade.Size = new System.Drawing.Size(72, 24);
             this.btnTroopsUpgrade.TabIndex = 2;
-            this.btnTroopsUpgrade.Text = "Upgrade";
+            this.btnTroopsUpgrade.Text = "升级";
             this.btnTroopsUpgrade.Click += new System.EventHandler(this.btnTroopsUpgrade_Click);
             // 
             // splParty

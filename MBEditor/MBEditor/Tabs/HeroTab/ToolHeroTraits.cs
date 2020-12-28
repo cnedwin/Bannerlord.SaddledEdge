@@ -52,18 +52,18 @@ namespace MBEditor.Tabs.HeroTab
 
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Trait", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
+                Text = "特质", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
                 AspectGetter = item => ((TraitObject)item).Name?.ToString(),
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Value", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
+                Text = "数值", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true,
                 AspectGetter = item => selHero?.GetTraitLevel((TraitObject)item) ,
                 AspectPutter = (item, value) => selHero?.SetTraitLevel((TraitObject)item, Math.Max(int.MinValue, Math.Min(int.MaxValue, Convert.ToInt32(value))))
             });
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Hidden", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,
+                Text = "隐藏", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((TraitObject)item).IsHidden
             });

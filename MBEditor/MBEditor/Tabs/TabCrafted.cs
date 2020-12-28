@@ -183,7 +183,7 @@ namespace MBEditor.Tabs
             crafting1.GetType().GetMethod("SetItemObject", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(crafting1, new Object[] { overrideData, itemObject });
             return itemObject;
         }
-        public string SettingsName => "Crafted";
+        public string SettingsName => "锻造";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

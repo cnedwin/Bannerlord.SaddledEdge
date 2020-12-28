@@ -75,7 +75,7 @@
             this.olvNPCName.AspectName = "Name";
             this.olvNPCName.IsEditable = false;
             this.olvNPCName.MinimumWidth = 50;
-            this.olvNPCName.Text = "Name";
+            this.olvNPCName.Text = "姓名";
             this.olvNPCName.UseInitialLetterForGroup = true;
             this.olvNPCName.Width = 235;
             // 
@@ -122,7 +122,7 @@
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tabInfo.Size = new System.Drawing.Size(356, 594);
             this.tabInfo.TabIndex = 0;
-            this.tabInfo.Text = "Info";
+            this.tabInfo.Text = "信息";
             // 
             // splVertical
             // 
@@ -161,7 +161,7 @@
             this.tabNPCDetail.Padding = new System.Windows.Forms.Padding(3);
             this.tabNPCDetail.Size = new System.Drawing.Size(237, 521);
             this.tabNPCDetail.TabIndex = 1;
-            this.tabNPCDetail.Text = "Detail";
+            this.tabNPCDetail.Text = "详情";
             // 
             // darkPropertyGrid1
             // 

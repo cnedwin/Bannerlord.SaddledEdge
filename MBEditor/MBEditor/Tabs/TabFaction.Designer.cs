@@ -101,7 +101,7 @@
             this.tabSideDetail.Padding = new System.Windows.Forms.Padding(3);
             this.tabSideDetail.Size = new System.Drawing.Size(354, 584);
             this.tabSideDetail.TabIndex = 1;
-            this.tabSideDetail.Text = "Detail";
+            this.tabSideDetail.Text = "详情";
             this.tabSideDetail.UseVisualStyleBackColor = true;
             // 
             // PropertyGrid

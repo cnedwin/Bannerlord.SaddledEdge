@@ -84,45 +84,45 @@ namespace MBEditor.Tabs
             olvNPCName.IsEditable = false;
             lstCompanions.AllColumns.Add(new OLVColumn
             {
-                Text = "Clan",IsVisible = false,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 100,
+                Text = "氏族",IsVisible = false,TextAlign = HorizontalAlignment.Center,IsEditable = false,MinimumWidth = 80,Width = 100,
                 AspectGetter = item => ((Hero)item).Clan?.Name?.ToString() ?? "<None>",
             });
 
             lstCompanions.AllColumns.Add(new OLVColumn
             {
-                Text = "Age",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = true,Width = 60,
+                Text = "年龄",IsVisible = true,TextAlign = HorizontalAlignment.Center,IsEditable = true,Width = 60,
                 AspectGetter = item => (int)((Hero)item).BirthDay.ElapsedYearsUntilNow,
             });
             lstCompanions.AllColumns.Add(new OLVColumn
             {
-                Text = "Relations",IsVisible = false,TextAlign = HorizontalAlignment.Center,IsEditable = true,Width = 60,
+                Text = "关系",IsVisible = false,TextAlign = HorizontalAlignment.Center,IsEditable = true,Width = 60,
                 AspectGetter = item => ((Hero)item).GetRelation(this.Coordinator.Hero),
                 AspectPutter = (item, value) => { ((Hero)item).SetPersonalRelation(this.Coordinator.Hero, Convert.ToInt32(value)); }
             }); ;
             lstCompanions.AllColumns.Add(new OLVColumn
             {
-                Text = "Companion", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 140,
+                Text = "同伴", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 140,
                 AspectGetter = item => ((Hero)item).CompanionOf?.Name?.ToString() ?? "",
             });
             lstCompanions.AllColumns.Add(new OLVColumn {
-                Text = "Controversy", IsVisible = false, TextAlign = HorizontalAlignment.Center,IsEditable = false,Width = 60,
+                Text = "争议", IsVisible = false, TextAlign = HorizontalAlignment.Center,IsEditable = false,Width = 60,
                 AspectGetter = item => ((Hero)item).Controversy,
             });
             lstCompanions.AllColumns.Add(new OLVColumn {
-                Text = "Settlement", IsVisible = true,TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 160,
+                Text = "定居点", IsVisible = true,TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 160,
                 AspectGetter = item => ((Hero)item).CurrentSettlement?.Name?.ToString(),
             });
             lstCompanions.AllColumns.Add(new OLVColumn {
-                Text = "LastSeen", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 100,
+                Text = "上次见面", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, MinimumWidth = 80, Width = 100,
                 AspectGetter = item => ((Hero)item).LastSeenPlace?.Name?.ToString(),
             });
             lstCompanions.AllColumns.Add(new OLVColumn {
-                Text = "IsDead", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 90,
+                Text = "死亡", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 90,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Hero)item).IsDead,
             });
             lstCompanions.AllColumns.Add(new OLVColumn {
-                Text = "IsLeader", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 100,
+                Text = "领袖", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false,Width = 100,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((Hero)item).IsFactionLeader,
             });
@@ -131,7 +131,7 @@ namespace MBEditor.Tabs
             lstCompanions.Columns.Clear();
             lstCompanions.Columns.AddRange(lstCompanions.AllColumns.Where(x => x.IsVisible).ToArray<ColumnHeader>());
 
-            lstCompanions.AllColumns.First(x => x.Text == "IsDead").ValuesChosenForFiltering = new List<bool> { false }; // remove dead people
+            lstCompanions.AllColumns.First(x => x.Text == "死亡").ValuesChosenForFiltering = new List<bool> { false }; // remove dead people
             this.lstCompanions.UpdateColumnFiltering();
         }
 
@@ -162,12 +162,12 @@ namespace MBEditor.Tabs
             //var content = new TabHeroMain() { DockText = "Hero Attributes" };
             //DockPanel.AddContent(content);
 
-            var attrs = new TabHeroAttrs() { DockText = "Attributes"};
+            var attrs = new TabHeroAttrs() { DockText = "属性点"};
             DockPanel.AddContent(attrs);
-            DockPanel.AddContent(new TabHeroPerks() { DockText = "Perks"}, attrs.DockGroup);
-            DockPanel.AddContent(new TabHeroSkills() { DockText = "Skills"}, attrs.DockGroup);
-            DockPanel.AddContent(new TabHeroTraits() { DockText = "Traits"}, attrs.DockGroup);
-            DockPanel.AddContent(new TabHeroRelations() { DockText = "Relations" }, attrs.DockGroup);
+            DockPanel.AddContent(new TabHeroPerks() { DockText = "技巧"}, attrs.DockGroup);
+            DockPanel.AddContent(new TabHeroSkills() { DockText = "技能"}, attrs.DockGroup);
+            DockPanel.AddContent(new TabHeroTraits() { DockText = "特质"}, attrs.DockGroup);
+            DockPanel.AddContent(new TabHeroRelations() { DockText = "关系" }, attrs.DockGroup);
             //DockPanel.AddContent(new TabHeroProps() { DockText = "Detail" }, attrs.DockGroup);
 
             //DockPanel.ActiveContent = content; // main document
@@ -246,7 +246,7 @@ namespace MBEditor.Tabs
             }
         }
 
-        public string SettingsName => "Hero";
+        public string SettingsName => "英雄";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

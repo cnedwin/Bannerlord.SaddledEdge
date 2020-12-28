@@ -51,7 +51,7 @@ namespace MBEditor.Tabs.HeroTab
             lstItems.ShowGroups = false;
             lstItems.AllColumns.Add(new OLVColumn
             {
-                Text = "Attribute", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
+                Text = "属性", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, MinimumWidth = 80, Width = 160,
                 AspectGetter = item => Enum.GetName(typeof(CharacterAttributesEnum),Convert.ToInt32(item)),
             });
             lstItems.AllColumns.Add(new OLVColumn

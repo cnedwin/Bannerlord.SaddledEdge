@@ -66,53 +66,53 @@ namespace MBEditor.Tabs
 
             lstAllItems.AllColumns.Clear();
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Name", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 280, MinimumWidth = 100,
+                Text = "名称", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 280, MinimumWidth = 100,
                 AspectGetter = item => ((CharacterObject)item).Name?.ToString(),
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Culture", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 136, MinimumWidth = 80,
+                Text = "文化", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 136, MinimumWidth = 80,
                 AspectGetter = item => ((CharacterObject)item).Culture?.Name?.ToString(),
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Occupation", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 100,
+                Text = "类型", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 100,
                 AspectGetter = item => ((CharacterObject)item).Occupation,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Level", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "等级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 AspectGetter = item => ((CharacterObject)item).Level,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Female", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "性别", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).IsFemale,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Bandit", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "强盗", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).Culture?.IsBandit ?? false,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Infantry", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "步兵", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).IsInfantry,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Archer", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "射手", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).IsArcher,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Mounted", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "骑兵", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).IsMounted,
             });
             lstAllItems.AllColumns.Add(new OLVColumn {
-                Text = "Basic", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "基本", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => ((CharacterObject)item).IsBasicTroop,
             });
             lstAllItems.AllColumns.Add( new OLVColumn {
-                Text = "Excluded", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "排除", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => IsExcluded((CharacterObject)item),
             });
@@ -124,8 +124,8 @@ namespace MBEditor.Tabs
             lstAllItems.Columns.AddRange(lstAllItems.AllColumns.Where(x => x.IsVisible).ToArray<ColumnHeader>());
             lstAllItems.AutoSizeColumns();
 
-            lstAllItems.AllColumns.First(x => x.Text == "Occupation").ValuesChosenForFiltering = new List<Occupation> { Occupation.Soldier, Occupation.Bandit, Occupation.Mercenary };
-            lstAllItems.AllColumns.First(x => x.Text == "Excluded").ValuesChosenForFiltering = new List<bool> {false};
+            lstAllItems.AllColumns.First(x => x.Text == "类型").ValuesChosenForFiltering = new List<Occupation> { Occupation.Soldier, Occupation.Bandit, Occupation.Mercenary };
+            lstAllItems.AllColumns.First(x => x.Text == "排除").ValuesChosenForFiltering = new List<bool> {false};
             this.lstAllItems.UpdateColumnFiltering();
         }
 
@@ -140,19 +140,19 @@ namespace MBEditor.Tabs
                 AspectGetter = item => (int)item,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Name", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 280, MinimumWidth = 100,
+                Text = "名称", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 280, MinimumWidth = 100,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.Name?.ToString(),
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Culture", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 136, MinimumWidth = 100,
+                Text = "文化", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 136, MinimumWidth = 100,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.Culture?.Name?.ToString(),
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Occupation", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 120, MinimumWidth = 100,
+                Text = "类型", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 120, MinimumWidth = 100,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.Occupation,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Count",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60,
+                Text = "数量",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60,
                 AspectGetter = item => Roster.GetElementNumber((int)item),
                 AspectPutter = (item, value) => {
                     if (Roster.GetCharacterAtIndex((int)item).IsHero) return;
@@ -175,7 +175,7 @@ namespace MBEditor.Tabs
                 },
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Wounded",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60,
+                Text = "伤员",IsVisible = true,TextAlign = HorizontalAlignment.Right,IsEditable = true,MinimumWidth = 60,
                 AspectGetter = item => Roster.GetElementWoundedNumber((int)item),
                 AspectPutter = (item, value) => {
                     if (Roster.GetCharacterAtIndex((int)item).IsHero) return;
@@ -183,7 +183,7 @@ namespace MBEditor.Tabs
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn
             {
-                Text = "Xp", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, MinimumWidth = 60,
+                Text = "经验", IsVisible = true, TextAlign = HorizontalAlignment.Right, IsEditable = true, MinimumWidth = 60,
                 AspectGetter = item => Roster.GetElementXp((int)item),
                 AspectPutter = (item, value) =>
                 {
@@ -198,41 +198,41 @@ namespace MBEditor.Tabs
                 },
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Level", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "等级", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.Level ?? 0,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Female", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "性别", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsFemale ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Bandit", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "强盗", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.Culture?.IsBandit ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Infantry", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "步兵", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsInfantry ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Archer", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "射手", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsArcher ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Mounted", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "骑兵", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsMounted ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Basic", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "基础", IsVisible = true, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsBasicTroop ?? false,
             });
             lstRosterTroops.AllColumns.Add(new OLVColumn {
-                Text = "Hero", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
+                Text = "英雄", IsVisible = false, TextAlign = HorizontalAlignment.Center, IsEditable = false, Width = 60,
                 Renderer = new DarkUI.Support.CheckStateRenderer(), CheckBoxes = true,
                 AspectGetter = item => Roster.GetCharacterAtIndex((int)item)?.IsHero ?? false,
             }); ;
@@ -259,7 +259,7 @@ namespace MBEditor.Tabs
             {
                 e.AutoDispose = true;
 
-                var incr = e.Column.Text.Contains("Gold") ? 1000 : 1;
+                var incr = e.Column.Text.Contains("金钱") ? 1000 : 1;
 
                 e.Control = new DarkUI.Controls.DarkNumericUpDown
                 {
@@ -303,7 +303,7 @@ namespace MBEditor.Tabs
 
                 if (full)
                 {
-                    lstRosterTroops.AllColumns.First(x => x.Text == "Hero").ValuesChosenForFiltering = new List<bool> { false };
+                    lstRosterTroops.AllColumns.First(x => x.Text == "英雄").ValuesChosenForFiltering = new List<bool> { false };
                     this.lstRosterTroops.UpdateColumnFiltering();
                 }
 
@@ -368,9 +368,9 @@ namespace MBEditor.Tabs
                     var chr = Roster.GetCharacterAtIndex(idx);
                     if (prisonRoster)
                     {
-                        var behavior = Campaign.Current?.GetCampaignBehavior<MountAndBlade.CampaignBehaviors.IRecruitPrisonersCampaignBehavior>();
-                        if (behavior != null)
-                            behavior.SetRecruitableNumber(Roster.GetCharacterAtIndex(idx), Roster.GetElementNumber(idx));
+                        //var behavior = Campaign.Current?.GetCampaignBehavior<MountAndBlade.CampaignBehaviors>();
+                        //if (behavior != null)
+                        //    behavior.SetRecruitableNumber(Roster.GetCharacterAtIndex(idx), Roster.GetElementNumber(idx));
                     }
                     else
                     {
@@ -390,8 +390,8 @@ namespace MBEditor.Tabs
             this.prisonRoster = !this.prisonRoster;
             Roster = this.prisonRoster ? Coordinator.Hero.PartyBelongedTo.Party.PrisonRoster : Coordinator.Hero.PartyBelongedTo.Party.MemberRoster;
             this.UpdateRosterList();
-            this.btnPrisoners.Text = "Show " + (this.prisonRoster ? "Troops" : "Prisoners");
-            this.btnTroopsUpgrade.Text = this.prisonRoster ? "Recruit" : "Upgrade";
+            this.btnPrisoners.Text = "显示 " + (this.prisonRoster ? "部队" : "俘虏");
+            this.btnTroopsUpgrade.Text = this.prisonRoster ? "招募" : "升级";
         }
 
         private void AddCurrentSelection()
@@ -414,7 +414,7 @@ namespace MBEditor.Tabs
         }
         
 
-        public string SettingsName => "Troops";
+        public string SettingsName => "部队";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

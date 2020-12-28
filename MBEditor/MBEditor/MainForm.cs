@@ -49,16 +49,16 @@ namespace MBEditor
             else if (!string.IsNullOrEmpty(ver))
                 this.Text += " " + ver.ToString();
 
-            var party = new Tabs.TabParty() { DockText = "Party" };
+            var party = new Tabs.TabParty() { DockText = "国家" };
             DockPanel.AddContent(party);
-            DockPanel.AddContent(new Tabs.TabInventory() { DockText = "Inventory" });
-            DockPanel.AddContent(new Tabs.TabTroops() { DockText = "Troops" });
-            DockPanel.AddContent(new Tabs.TabHero() { DockText = "Companions" });
-            DockPanel.AddContent(new Tabs.TabNPCs() { DockText = "NPCs" });
-            DockPanel.AddContent(new Tabs.TabFaction() { DockText = "Factions" });
-            DockPanel.AddContent(new Tabs.TabSettlement() { DockText = "Settlements" });
-            DockPanel.AddContent(new Tabs.TabCrafted() { DockText = "Crafted Items" });
-            DockPanel.AddContent(new Tabs.TabWorkshops() { DockText = "Workshops" });
+            DockPanel.AddContent(new Tabs.TabInventory() { DockText = "背包" });
+            DockPanel.AddContent(new Tabs.TabTroops() { DockText = "部队" });
+            DockPanel.AddContent(new Tabs.TabHero() { DockText = "同伴" });
+            DockPanel.AddContent(new Tabs.TabNPCs() { DockText = "角色" });
+            DockPanel.AddContent(new Tabs.TabFaction() { DockText = "势力" });
+            DockPanel.AddContent(new Tabs.TabSettlement() { DockText = "定居点" });
+            DockPanel.AddContent(new Tabs.TabCrafted() { DockText = "锻造" });
+            DockPanel.AddContent(new Tabs.TabWorkshops() { DockText = "工厂" });
             DockPanel.ActiveContent = party;
 
             DockPanel.CloseButtonEnabled = false;

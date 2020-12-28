@@ -23,8 +23,8 @@ namespace MBEditor.Tabs
     {
         private const string defaultNoneName = "<None>";
         private static string[] itemTypeNames = new string[] {
-            "All", "Horse", "One Handed Weapons", "Two Handed Weapons", "Polearms", "Arrows", "Bolts", "Shields", "Bows", "Crossbows", "Thrown", "Goods", "Helmets", "Body Armor", "Leg Armor", "Hand Armor",
-            "Pistols", "Muskets", "Bullets", "Animals", "Books", "Chest Armor", "Capes", "Horse Harnesses", "Banners"
+            "全部", "坐骑", "单手武器", "双手武器", "长杆", "箭矢", "弩矢", "盾牌", "弓", "十字弩", "投掷", "物品", "头盔", "盔甲", "护腿", "手斧",
+            "火枪", "步枪", "子弹", "动物", "书籍", "胸甲", "斗篷", "马具", "旗帜"
         };
        
 
@@ -102,7 +102,7 @@ namespace MBEditor.Tabs
         {
             var siege = PlayerSiege.PlayerSiegeEvent;
 #if !MBVER_010403
-            //if (PlayerSiege.Current != null) return;
+         //   if (PlayerSiege.Current != null) return;
 #endif
             if (PlayerSiege.PlayerSiegeEvent != null)
             {
@@ -146,12 +146,12 @@ namespace MBEditor.Tabs
             lstInvMod.AllColumns.Clear();
             lstInvMod.AllColumns.Add(new OLVColumn
             {
-                Text = "Name", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 270, MinimumWidth = 80,
+                Text = "名称", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = false, Width = 270, MinimumWidth = 80,
                 AspectGetter = item => itemTypeNames[((int)item)],
             });
             lstInvMod.AllColumns.Add(new OLVColumn
             {
-                Text = "Modifier", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = true, MinimumWidth = 150, Width = 270,
+                Text = "前缀", IsVisible = true, TextAlign = HorizontalAlignment.Left, IsEditable = true, MinimumWidth = 150, Width = 270,
                 AspectGetter = item => { this.Coordinator.State.ModDefaultDict.TryGetValue((ItemObject.ItemTypeEnum)item, out var mod); return mod ?? defaultNoneName; },
                 AspectPutter = (item, value) => { },
             });
@@ -174,7 +174,7 @@ namespace MBEditor.Tabs
 
         private void lstInvMod_CellEditStarting(object sender, CellEditEventArgs e)
         {
-            if (e.Column.Text == "Modifier")
+            if (e.Column.Text == "前缀")
             {
                 var cb = new DarkUI.Controls.DarkComboBox
                 {
@@ -203,7 +203,7 @@ namespace MBEditor.Tabs
 
         private void lstInvMod_CellEditFinishing(object sender, CellEditEventArgs e)
         {
-            if (e.Column.Text == "Modifier")
+            if (e.Column.Text == "前缀")
             {
                 e.Control = null;
                 ((ObjectListView)sender).RefreshItem(e.ListViewItem);
@@ -251,7 +251,7 @@ namespace MBEditor.Tabs
         {
             var siege = PlayerSiege.PlayerSiegeEvent;
 #if !MBVER_010403
-            //if (PlayerSiege.Current != null) return;
+         //   if (PlayerSiege.Current != null) return;
 #endif
             if (PlayerSiege.PlayerSiegeEvent != null)
             {
@@ -358,7 +358,7 @@ namespace MBEditor.Tabs
 
         }
 
-        public string SettingsName => "Party";
+        public string SettingsName => "国家";
         public JObject SaveSettings()
         {
             var objctrl = new JObject();

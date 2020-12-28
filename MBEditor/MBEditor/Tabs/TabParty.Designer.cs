@@ -125,7 +125,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 13);
             this.label17.TabIndex = 0;
-            this.label17.Text = "Gold:";
+            this.label17.Text = "第纳尔:";
             // 
             // grpDefaultMods
             // 
@@ -138,7 +138,7 @@
             this.grpDefaultMods.Size = new System.Drawing.Size(308, 515);
             this.grpDefaultMods.TabIndex = 0;
             this.grpDefaultMods.TabStop = false;
-            this.grpDefaultMods.Text = "Default Item Modifications";
+            this.grpDefaultMods.Text = "默认装备前缀";
             // 
             // lstInvMod
             // 
@@ -164,7 +164,7 @@
             this.olvColumn1.AspectName = "Name";
             this.olvColumn1.IsEditable = false;
             this.olvColumn1.MinimumWidth = 50;
-            this.olvColumn1.Text = "Name";
+            this.olvColumn1.Text = "名称";
             this.olvColumn1.UseInitialLetterForGroup = true;
             this.olvColumn1.Width = 145;
             // 
@@ -181,7 +181,7 @@
             this.txtItemModExplain.ReadOnly = true;
             this.txtItemModExplain.Size = new System.Drawing.Size(292, 45);
             this.txtItemModExplain.TabIndex = 0;
-            this.txtItemModExplain.Text = "These modifications are used with the \"Apply Mods\" button on Inventory Page";
+            this.txtItemModExplain.Text = "这些修改与库存页面上的 应用 按钮一起使用";
             this.txtItemModExplain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // spltItems
@@ -228,7 +228,7 @@
             this.grpCheats.Size = new System.Drawing.Size(388, 92);
             this.grpCheats.TabIndex = 3;
             this.grpCheats.TabStop = false;
-            this.grpCheats.Text = "Cheats";
+            this.grpCheats.Text = "作弊";
             // 
             // numPartyMaxPrisoners
             // 
@@ -289,7 +289,7 @@
             this.darkLabel3.Name = "darkLabel3";
             this.darkLabel3.Size = new System.Drawing.Size(107, 13);
             this.darkLabel3.TabIndex = 6;
-            this.darkLabel3.Text = "Player Add Prisoners:";
+            this.darkLabel3.Text = "添加俘虏上限:";
             // 
             // darkLabel2
             // 
@@ -300,7 +300,7 @@
             this.darkLabel2.Name = "darkLabel2";
             this.darkLabel2.Size = new System.Drawing.Size(97, 13);
             this.darkLabel2.TabIndex = 6;
-            this.darkLabel2.Text = "Player Add Troops:";
+            this.darkLabel2.Text = "添加部队上限:";
             // 
             // grpPlayer
             // 
@@ -318,7 +318,7 @@
             this.grpPlayer.Size = new System.Drawing.Size(392, 134);
             this.grpPlayer.TabIndex = 0;
             this.grpPlayer.TabStop = false;
-            this.grpPlayer.Text = "Player";
+            this.grpPlayer.Text = "玩家";
             // 
             // numControversy
             // 
@@ -359,7 +359,7 @@
             this.lblControversy.Name = "lblControversy";
             this.lblControversy.Size = new System.Drawing.Size(66, 13);
             this.lblControversy.TabIndex = 6;
-            this.lblControversy.Text = "Controversy:";
+            this.lblControversy.Text = "话语权:";
             // 
             // lblRenown
             // 
@@ -370,7 +370,7 @@
             this.lblRenown.Name = "lblRenown";
             this.lblRenown.Size = new System.Drawing.Size(50, 13);
             this.lblRenown.TabIndex = 2;
-            this.lblRenown.Text = "Renown:";
+            this.lblRenown.Text = "声望:";
             // 
             // numInfluence
             // 
@@ -411,7 +411,7 @@
             this.lblInfluence.Name = "lblInfluence";
             this.lblInfluence.Size = new System.Drawing.Size(54, 13);
             this.lblInfluence.TabIndex = 4;
-            this.lblInfluence.Text = "Influence:";
+            this.lblInfluence.Text = "影响力:";
             // 
             // numRenown
             // 
@@ -460,7 +460,7 @@
             this.grpHotKey.Size = new System.Drawing.Size(388, 157);
             this.grpHotKey.TabIndex = 2;
             this.grpHotKey.TabStop = false;
-            this.grpHotKey.Text = "Open Hot Key";
+            this.grpHotKey.Text = "打开热键";
             // 
             // btnOpenKeySave
             // 
@@ -469,7 +469,7 @@
             this.btnOpenKeySave.Padding = new System.Windows.Forms.Padding(5);
             this.btnOpenKeySave.Size = new System.Drawing.Size(75, 23);
             this.btnOpenKeySave.TabIndex = 3;
-            this.btnOpenKeySave.Text = "Save";
+            this.btnOpenKeySave.Text = "保存";
             this.btnOpenKeySave.Click += new System.EventHandler(this.btnOpenKeySave_Click);
             // 
             // lblOpenShift
@@ -480,7 +480,7 @@
             this.lblOpenShift.Name = "lblOpenShift";
             this.lblOpenShift.Size = new System.Drawing.Size(72, 13);
             this.lblOpenShift.TabIndex = 6;
-            this.lblOpenShift.Text = "Shift Pressed:";
+            this.lblOpenShift.Text = "Shift 按键:";
             // 
             // lblOpenAlt
             // 
@@ -490,7 +490,7 @@
             this.lblOpenAlt.Name = "lblOpenAlt";
             this.lblOpenAlt.Size = new System.Drawing.Size(63, 13);
             this.lblOpenAlt.TabIndex = 4;
-            this.lblOpenAlt.Text = "Alt Pressed:";
+            this.lblOpenAlt.Text = "Alt 按键:";
             // 
             // lblOpenCtrl
             // 
@@ -500,7 +500,7 @@
             this.lblOpenCtrl.Name = "lblOpenCtrl";
             this.lblOpenCtrl.Size = new System.Drawing.Size(66, 13);
             this.lblOpenCtrl.TabIndex = 2;
-            this.lblOpenCtrl.Text = "Ctrl Pressed:";
+            this.lblOpenCtrl.Text = "Ctrl 按键:";
             // 
             // lblOpenKey
             // 
@@ -510,7 +510,7 @@
             this.lblOpenKey.Name = "lblOpenKey";
             this.lblOpenKey.Size = new System.Drawing.Size(28, 13);
             this.lblOpenKey.TabIndex = 0;
-            this.lblOpenKey.Text = "Key:";
+            this.lblOpenKey.Text = "热键:";
             // 
             // cboOpenShift
             // 
@@ -572,7 +572,7 @@
             this.grpSiege.Size = new System.Drawing.Size(391, 78);
             this.grpSiege.TabIndex = 1;
             this.grpSiege.TabStop = false;
-            this.grpSiege.Text = "Active Siege";
+            this.grpSiege.Text = "激活围攻";
             // 
             // btnComplete
             // 
@@ -581,7 +581,7 @@
             this.btnComplete.Padding = new System.Windows.Forms.Padding(5);
             this.btnComplete.Size = new System.Drawing.Size(75, 23);
             this.btnComplete.TabIndex = 3;
-            this.btnComplete.Text = "Finish";
+            this.btnComplete.Text = "完成";
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // chkPlayerSiege
@@ -613,7 +613,7 @@
             this.darkLabel1.Name = "darkLabel1";
             this.darkLabel1.Size = new System.Drawing.Size(91, 13);
             this.darkLabel1.TabIndex = 0;
-            this.darkLabel1.Text = "Settlement Name:";
+            this.darkLabel1.Text = "定居点名称:";
             // 
             // tabStripDetail
             // 
@@ -638,7 +638,7 @@
             this.tabModDefault.Padding = new System.Windows.Forms.Padding(3);
             this.tabModDefault.Size = new System.Drawing.Size(314, 521);
             this.tabModDefault.TabIndex = 0;
-            this.tabModDefault.Text = "Mod Defaults";
+            this.tabModDefault.Text = "默认";
             // 
             // tabDetail
             // 
@@ -649,7 +649,7 @@
             this.tabDetail.Padding = new System.Windows.Forms.Padding(3);
             this.tabDetail.Size = new System.Drawing.Size(314, 521);
             this.tabDetail.TabIndex = 1;
-            this.tabDetail.Text = "Detail";
+            this.tabDetail.Text = "详情";
             // 
             // darkPropertyGrid1
             // 
