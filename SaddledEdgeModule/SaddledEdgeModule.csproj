@@ -13,7 +13,7 @@
     <IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)$(MSBuildProjectName)\</IntermediateOutputPath>    
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Configurations>Release;v1.5.5</Configurations>
+    <Configurations>Release;v1.5.7</Configurations>
     <MB2InstallLocation>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</MB2InstallLocation>
     <Net4LibraryLocation>$(MB2InstallLocation)\bin\Win64_Shipping_Client\mono\lib\mono\4.0-api</Net4LibraryLocation>
     <DefineConstants>TRACE;NETCORE</DefineConstants>
@@ -23,11 +23,11 @@
     <Configuration>Release</Configuration>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <MB2Version>1.5.5</MB2Version>
+    <MB2Version>1.5.7</MB2Version>
     <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\v1.5.5</MB2LibraryLocation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='v1.5.5'">
-    <MB2Version>1.5.5</MB2Version>
+    <MB2Version>1.5.7</MB2Version>
     <DefineConstants>MBVER_010201;MBVER_010301</DefineConstants>
     <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
   </PropertyGroup>

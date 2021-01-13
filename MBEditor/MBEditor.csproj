@@ -13,7 +13,7 @@
     <!--<IntermediateOutputPath>$(MSBuildProjectDirectory)\..\Temp\$(TargetFramework)$(MSBuildProjectName)\</IntermediateOutputPath>-->    
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Configurations>Current;v1.2.1;v1.3.0;v1.3.1;v1.4.0;v1.4.1;v1.4.2;v1.4.3;v1.5.2</Configurations>
+    <Configurations>Current;v1.2.1;v1.3.0;v1.3.1;v1.4.0;v1.4.1;v1.4.2;v1.4.3;v1.5.7</Configurations>
     <InformationalVersion>$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)\..\Version.txt'))</InformationalVersion>
     <DefineConstants>TRACE;DEBUG;NETCORE</DefineConstants>
     <MB2InstallLocation>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 261550', 'InstallLocation', null, RegistryView.Registry64))</MB2InstallLocation>
@@ -61,9 +61,9 @@
     <DefineConstants>TRACE;MBVER_010403</DefineConstants>
     <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
   </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='v1.5.2'">
-    <MB2Version>1.5.2</MB2Version>
-    <DefineConstants>TRACE;MBVER_010505</DefineConstants>
+    <PropertyGroup Condition="'$(Configuration)'=='v1.5.7'">
+    <MB2Version>1.5.7</MB2Version>
+    <DefineConstants>TRACE;MBVER_010507</DefineConstants>
     <MB2LibraryLocation>$(MSBuildProjectDirectory)\..\Libraries\$(Configuration)</MB2LibraryLocation>
   </PropertyGroup>
   <PropertyGroup>

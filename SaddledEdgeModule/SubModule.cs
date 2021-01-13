@@ -4,6 +4,7 @@
     using System.Linq;
     using TaleWorlds.Core;
     using TaleWorlds.Library;
+    using TaleWorlds.ModuleManager;
     using TaleWorlds.MountAndBlade;
 
     public class SubModule : MBSubModuleBase
@@ -42,8 +43,8 @@
                 {
                     var dir = System.IO.Path.GetDirectoryName(asm.Location);
 
-                    var native = ModuleInfo.GetModules().OfType<ModuleInfo>().FirstOrDefault(x => x.IsNative());
-                    var selfmod = ModuleInfo.GetModules().OfType<ModuleInfo>().FirstOrDefault(x=>x.Id == "SaddledEdgeEditor");
+                    var native = ModuleHelper.GetModules().OfType<ModuleInfo>().FirstOrDefault(x => x.IsNative());
+                    var selfmod = ModuleHelper.GetModules().OfType<ModuleInfo>().FirstOrDefault(x=>x.Id == "SaddledEdgeEditor");
                     if (native != null && selfmod != null)
                     {
                         var nativever = new System.Version(native.Version.Major, native.Version.Minor, native.Version.Revision);

@@ -13,8 +13,8 @@
 [assembly: System.Runtime.InteropServices.ComVisible(false)]
 [assembly: System.Reflection.AssemblyInformationalVersion("1.5.4-10")]
 [assembly: System.Reflection.AssemblyCopyright("Copyright © shadowglaze")]
-[assembly: System.Reflection.AssemblyFileVersion("1.4.1")]
-[assembly: System.Reflection.AssemblyVersion("1.4.1")]
+[assembly: System.Reflection.AssemblyFileVersion("1.5.7")]
+[assembly: System.Reflection.AssemblyVersion("1.5.7")]
 [assembly: System.Reflection.AssemblyTitle("MBEditor")]
 
 

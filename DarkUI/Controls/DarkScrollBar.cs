@@ -36,9 +36,9 @@ namespace DarkUI.Controls
         private bool _upArrowHot;
         private bool _downArrowHot;
 
-#pragma warning disable IDE0052 // 删除未读的私有成员
+
         private bool _thumbClicked;
-#pragma warning restore IDE0052 // 删除未读的私有成员
+
         private bool _upArrowClicked;
         private bool _downArrowClicked;
 

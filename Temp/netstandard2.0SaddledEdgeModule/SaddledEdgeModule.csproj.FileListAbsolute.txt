@@ -18,3 +18,13 @@ C:\Users\EdwinChen\source\repos\SaddledEdge\Temp\netstandard2.0SaddledEdgeModule
 C:\Users\EdwinChen\source\repos\SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.csproj.CopyComplete
 C:\Users\EdwinChen\source\repos\SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.dll
 C:\Users\EdwinChen\source\repos\SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.pdb
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Output\netstandard2.0\SaddledEdgeModule\SaddledEdgeModule.deps.json
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Output\netstandard2.0\SaddledEdgeModule\SaddledEdgeModule.dll
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Output\netstandard2.0\SaddledEdgeModule\SaddledEdgeModule.pdb
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.Properties.Resources.resources
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.csproj.CopyComplete
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.dll
+C:\Users\Administrator\source\repos\Bannerlord.SaddledEdge\Temp\netstandard2.0SaddledEdgeModule\SaddledEdgeModule.pdb
