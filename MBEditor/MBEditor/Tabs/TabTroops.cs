@@ -18,7 +18,7 @@ namespace MBEditor.Tabs
         static readonly Occupation[] junk_excludes = new [] { Occupation.NotAssigned, Occupation.Special, Occupation.Wanderer };
 
         private static readonly Func<CharacterObject, bool> IsStrictExcluded = x =>
-            x.IsHero || x.IsPlayerCharacter || x.IsTemplate || x.IsNotTransferable || x.IsChildTemplate;
+            x.IsHero || x.IsPlayerCharacter || x.IsTemplate || x.IsNotTransferableInPartyScreen || x.IsChildTemplate;
 
         private static readonly Func<CharacterObject, bool> IsExcluded = x =>
             IsStrictExcluded(x) || junk_excludes.Contains(x.Occupation) || x.Culture == null || x.StringId.Contains("contender") || x.StringId.Contains("test");

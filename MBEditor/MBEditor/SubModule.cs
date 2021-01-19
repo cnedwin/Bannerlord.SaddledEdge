@@ -27,7 +27,7 @@ namespace MBEditor
         }
         internal static ClassCommandKey OpenKey = null;
 
-        private static readonly ClassCommandKey _defaultOpenKey = new ClassCommandKey { Code = InputKey.F8, Alt = false, Control = false, Shift = false };
+        private static readonly ClassCommandKey _defaultOpenKey = new ClassCommandKey { Code = InputKey.F8, Alt = false, Control = true, Shift = false };
 
         public class WindowWrapper : System.Windows.Forms.IWin32Window
         {
