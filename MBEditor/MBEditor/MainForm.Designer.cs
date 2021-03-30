@@ -56,7 +56,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Saddled Edge:  Mount & Blade II: Bannerlord Editor";
+            this.Text = "骑马与砍杀 II: 暗夜刀锋修改器 （版权归骑砍中文站和作者cnedwin所有，任何淘宝出售的皆为盗版侵权！！！";
             this.TopMost = true;
             this.ResumeLayout(false);
 

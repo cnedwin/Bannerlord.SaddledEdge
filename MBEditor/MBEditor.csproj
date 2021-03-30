@@ -142,6 +142,6 @@
   </ItemGroup> 
   <Target Name="SolutionInfo" BeforeTargets="BeforeBuild;Build;BuildCompile;BuildGenerateSources">
       <Message Text="Creating Version File:     $(MB2Version)" />
-      <AssemblyInfo CodeLanguage="CS" OutputFile="VersionInfo.cs" AssemblyTitle="MBEditor" AssemblyDescription="Mount &amp; Blade 2: Bannerlord Editor" AssemblyCopyright="Copyright © shadowglaze" ComVisible="false" CLSCompliant="false" AssemblyVersion="$(MB2Version)" AssemblyFileVersion="$(MB2Version)" AssemblyInformationalVersion="$(InformationalVersion)" />
+      <AssemblyInfo CodeLanguage="CS" OutputFile="VersionInfo.cs" AssemblyTitle="MBEditor" AssemblyDescription="骑马与砍杀 2: 暗夜刀锋修改器" AssemblyCopyright="版权所有@骑砍中文站 cnedwin" ComVisible="false" CLSCompliant="false" AssemblyVersion="$(MB2Version)" AssemblyFileVersion="$(MB2Version)" AssemblyInformationalVersion="$(InformationalVersion)" />
   </Target>
 </Project>

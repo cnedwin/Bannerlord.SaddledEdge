@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Reflection.AssemblyDescription("Mount & Blade 2: Bannerlord Editor")]
+[assembly: System.Reflection.AssemblyDescription("骑马与砍杀 2: 暗夜刀锋修改器")]
 [assembly: System.CLSCompliant(false)]
 [assembly: System.Runtime.InteropServices.ComVisible(false)]
-[assembly: System.Reflection.AssemblyInformationalVersion("1.5.4-10")]
-[assembly: System.Reflection.AssemblyCopyright("Copyright © shadowglaze")]
+[assembly: System.Reflection.AssemblyInformationalVersion("1.5.9.1")]
+[assembly: System.Reflection.AssemblyCopyright("版权所有@骑砍中文站 cnedwin")]
 [assembly: System.Reflection.AssemblyFileVersion("1.5.7")]
 [assembly: System.Reflection.AssemblyVersion("1.5.7")]
 [assembly: System.Reflection.AssemblyTitle("MBEditor")]
